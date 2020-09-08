@@ -1,33 +1,59 @@
-<img src="https://mvarandas.com.br/static/default/images/menew-bymv.png" width="200">
+# TESTE PARA DESENVOLVEDOR (1)
 
-## **TESTE PARA DESENVOLVEDOR (1)**
+![projeto](menew.png)
 
+## Tabela de Conteúdo
 
-**Informações Iniciais:**
+-   [Tecnologias Utilizadas](#Tecnologias-Utilizadas)
+-   [Instalação e Uso](#Instalação-e-Uso)
+-   [Endpoints](#Endpoints)
 
-1. Para submeter o seu projeto, **faça um fork** deste repositório e realize um **pull request** para enviar o seu código;
+## Tecnologias Utilizadas
 
-2. O backend deve ser desenvolvido com PHP e o Banco de Dados preferencialmente MySQL;
+-   PHP
+-   JavaScript
+-   Laravel
+-   Bootstrap
+-   MySQL
+-   RESTful API
 
-3. O dump do Banco de Dados deve fazer parte dos arquivos versionados.
+## Instalação e Uso
 
-**Questão:**
+### Clonando o repositório:
 
-Elaborar uma aplicação de agenda para listar, cadastrar e editar informações.
+```bash
+$ git clone https://github.com/LeoDev0/menew-teste1.git
+```
 
-a) Os campos do formulário são os seguintes:
+### Criando banco de dados MySQL
 
- - nome (input text)
- - telefone (input text)
- - email (input text)
- - cidade (input text)
- - estado (select box com os 5 Estados de sua preferência)
- - categoria (select box com os itens Cliente, Fornecedor e Funcionário)
+```bash
+mysql> CREATE DATABASE menew
+```
 
-b) A interface deve ter uma busca de registros e respeitar os seguintes requisitos:
+### Instalando e execundo:
 
- - o código precisa ser bem formatado;
- - precisa respeitar padrões de responsividade;
- - deve ser desenvolvida com o uso de Bootstrap 4;
+```bash
+$ cd menew-teste1
+$ php artisan migrate:fresh
+$ php artisan serve --port=8000
+```
 
-...Boa Sorte!
+A aplicação estará rodando em `http://localhost:8000/`.
+
+## Endpoints
+
+### /api/contacts
+
+-   `GET`: Lista todos os contatos;
+-   `POST`: Cria novo contato.
+
+### /api/contacts/?search=
+
+-   `GET`: Pesquisa contatos pelos campos de nome, email, cidade, estado e categoria.
+
+### /api/contacts/{id}
+
+-   `GET`: Lista todos os dados de um único contato;
+-   `PUT`: Edita dados de um contato;
+-   `DELETE`: Deleta um contato.
