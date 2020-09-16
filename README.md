@@ -31,7 +31,7 @@ $ git clone https://github.com/LeoDev0/menew-teste1.git
 mysql> CREATE DATABASE menew
 ```
 
-### Instalando e execundo:
+### Instalando e executando:
 
 ```bash
 $ cd menew-teste1
