@@ -12,30 +12,32 @@
         <header>
             <div class="container">
                 <img src="images/logo.png" width="150" alt="Menew Logo">
+                <h1>AGENDA</h1>
             </div>
         </header>
+        <div class="container">
         <?php require_once 'process.php'; ?>
         <div class="row justify-content-center">
             <form action="process.php" method="POST">
                 <div class="form-group">
                     <label>Nome</label>
-                    <input type="text" name="Nome" class="form-control" value="Insira seu nome">
+                    <input type="text" name="nome" class="form-control" value="Insira seu nome">
                 </div>
                 <div class="form-group">
                     <label>Telefone</label>
-                    <input type="text" name="Telefone" class="form-control" value="Insira seu telefone">
+                    <input type="text" name="telefone" class="form-control" value="Insira seu telefone">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="Email" class="form-control" value="Insira seu email">
+                    <input type="text" name="email" class="form-control" value="Insira seu email">
                 </div>
                 <div class="form-group">
                     <label>Cidade</label>
-                    <input type="text" name="Cidade" class="form-control" value="Insira sua cidade">
+                    <input type="text" name="cidade" class="form-control" value="Insira sua cidade">
                 </div>
                 <div class="form-group">
                     <label>Estado</label>
-                    <select id="estado">
+                    <select id="estado" name="estado">
                         <option value="Pernambuco">Pernambuco</option>
                         <option value="Paraíba">Paraíba</option>
                         <option value="Sergipe">Sergipe</option>
@@ -45,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <label>Categoria</label>
-                    <select id="categoria">
+                    <select id="categoria" name="categoria">
                         <option value="Cliente">Cliente</option>
                         <option value="Fornecedor">Fornecedor</option>
                         <option value="Funcionário">Funcionário</option>
@@ -55,6 +57,51 @@
                     <button type="submit" class="btn btn-primary" name="salvar">Salvar</button>
                 </div>
             </form>
+        </div>
+            <?php
+                $mysqli = new mysqli('localhost', 'root', '', 'agenda-menew') or die(mysqli_error($mysqli));
+                $result = $mysqli->query("SELECT * FROM agenda ORDER BY nome") or die($mysqli->error);
+            ?>
+
+            <div class="row justify-content-center">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Email</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>Categoria</th>
+                            <th colspan="2"></th>
+                        </tr>
+                    </thead>
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo $row['nome']; ?></td>
+                            <td><?php echo $row['telefone']; ?></td>
+                            <td><?php echo $row['email']; ?></td>
+                            <td><?php echo $row['cidade']; ?></td>
+                            <td><?php echo $row['estado']; ?></td>
+                            <td><?php echo $row['categoria']; ?></td>
+                            <td>
+                                <a href="index.php?edit=<?php echo $row['id'];?>"
+                                   class="btn btn-info">Editar</a>
+                                <a href="process.php?delete=<?php echo $row['id'];?>"
+                                   class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </table>
+            </div>
+            <?php
+
+                function dadosSalvos($array) {
+                    echo'<pre>';
+                    print_r($array);
+                    echo'<pre>';
+                }
+            ?>
         </div>
     </body>
 </html>
