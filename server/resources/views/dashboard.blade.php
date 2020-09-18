@@ -8,6 +8,7 @@
                 <div class="col-md-3 col-lg-3"><button class="btn btn-dark" type="button">{{__('Add new')}}</button></div>
             </div>
             <div class="row mt-1">
+                @csrf
                 <div class="col">
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -29,7 +30,11 @@
                                     <div role="group" class="btn-group">
                                         <button class="btn btn-outline-dark" type="button">{{__('Visualize')}}</button>
                                         <button class="btn btn-outline-dark" type="button">{{__('Edit')}}</button>
-                                        <button class="btn btn-outline-dark" type="button">{{__('Delete')}}</button>
+                                        <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-outline-dark" type="submit">{{__('Delete')}}</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
