@@ -14,8 +14,8 @@
             <div class="row mt-1">
                 @csrf
                 <div class="col">
-                    @if(sizeof($contacts) == 0)
-                        <span>{{__('No contacts')}}</span>
+                    @if(sizeof($contacts == 0))
+                        <span>{{__('No results')}}</span>
                     @endif
                     @if(sizeof($contacts) > 0)
                         <div class="table-responsive">

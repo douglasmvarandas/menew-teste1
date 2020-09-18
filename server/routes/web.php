@@ -24,5 +24,8 @@ Route::get('/dashboard', function () {
     return redirect('contacts');
 });
 
+Route::post('/search/contacts',[\App\Http\Controllers\ContactController::class, 'search'])
+    ->middleware('auth')->name('contact.search');
+
 Route::middleware(['auth:sanctum', 'verified'])->resource('contacts',
     \App\Http\Controllers\ContactController::class)->name('show', 'contacts.show');

@@ -25,7 +25,7 @@
                                    value="{{$contact->name}}" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="email" placeholder="{{__('Email')}}"
+                            <input class="form-control" type="email" name="email" placeholder="{{__('Email')}}"
                                    value="{{$contact->email}}" required>
                         </div>
                         <div class="form-group">

@@ -171,4 +171,21 @@ class ContactController extends Controller
             return response()->json(['error' => 'Forbidden'], 403);
         }
     }
+
+    public function search(Request $request){
+
+        $searchString = $request->get('search');
+
+        $contacts = Contact::where('name', 'like', "%{$searchString}%")
+            ->orWhere('email', 'like', "%{$searchString}%")
+            ->orWhere('telephone', 'like', "%{$searchString}%")
+            ->orWhere('city', 'like', "%{$searchString}%")
+            ->orWhere('state', 'like', "%{$searchString}%")
+            ->orWhere('category', 'like', "%{$searchString}%")
+            ->orderBy('id')
+            ->get();
+        return $contacts ==! null ? view('search-contacts', compact('contacts')) :
+            response()->json(['error' => 'Not Found'], 404);
+    }
+
 }
