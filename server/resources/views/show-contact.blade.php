@@ -1,23 +1,4 @@
 <x-app-layout>
-    <nav class="navbar navbar-dark navbar-expand-md bg-dark navigation-clean-search">
-        <div class="container"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);">Menew Agenda</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"></li>
-                </ul>
-                <form class="form-inline mr-auto" target="_self">
-                    <div class="form-group">
-                        <label for="search-field">
-                            <i class="fa fa-search"></i>
-                        </label>
-                        <input class="form-control search-field" type="search" id="search-field" name="search"
-                               placeholder="{{__('Search contact')}}"></div>
-                </form>
-            </div>
-        </div>
-    </nav>
     <section class="d-md-flex justify-content-md-center" style="margin-top: 20px;">
         <div class="container">
             <div class="row">

@@ -25,4 +25,4 @@ Route::get('/dashboard', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('contacts',
-    \App\Http\Controllers\ContactController::class);
+    \App\Http\Controllers\ContactController::class)->name('show', 'contacts.show');

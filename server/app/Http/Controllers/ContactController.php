@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class ContactController extends Controller
 {
@@ -23,22 +24,47 @@ class ContactController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('create-contact');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $userID = Auth::id();
+
+        $types = ['Cliente', 'Fornecedor', 'Funcionário'];
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'telephone' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'category' => ['required', Rule::in($types)]
+        ]);
+
+        $contact = new Contact;
+        $contact->name = $request->name;
+        $contact->telephone = $request->telephone;
+        $contact->email = $request->email;
+        $contact->city = $request->city;
+        $contact->state = $request->state;
+        $contact->category = $request->category;
+        $contact->user_id = $userID;
+
+        $contact->save();
+
+        return redirect('contacts');
+
     }
 
     /**

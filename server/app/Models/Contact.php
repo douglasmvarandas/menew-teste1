@@ -11,7 +11,7 @@ class Contact extends Model
 
     protected $table = 'contacts';
 
-    protected $fillable = ['name', 'telephone', 'email', 'city', 'state', 'category'];
+    protected $fillable = ['name', 'telephone', 'email', 'city', 'state', 'category', 'user_id'];
 
     public function user(){
         return $this->hasOne('App\Models\User');
