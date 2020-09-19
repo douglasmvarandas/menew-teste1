@@ -17,27 +17,45 @@
         </header>
         <div class="container">
         <?php require_once 'process.php'; ?>
+            
+        <?php
+            if(isset($_SESSION['message'])):?>
+        <div class="alert alert-<?=$_SESSION['msg_type']?>">
+            
+            <?php
+                echo $_SESSION['message'];
+                unset($_SESSION['message']);
+            ?>
+        </div>
+        <?php endif ?>
         <div class="row justify-content-center">
             <form action="process.php" method="POST">
                 <div class="form-group">
                     <label>Nome</label>
-                    <input type="text" name="nome" class="form-control" value="Insira seu nome">
+                    <input type="text" name="nome" class="form-control" 
+                           value="<?php echo $nome; ?>" placeholder="Insira seu nome">
                 </div>
                 <div class="form-group">
                     <label>Telefone</label>
-                    <input type="text" name="telefone" class="form-control" value="Insira seu telefone">
+                    <input type="text" name="telefone" class="form-control" 
+                           value="<?php echo $telefone; ?>" placeholder="Insira seu telefone">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" class="form-control" value="Insira seu email">
+                    <input type="text" name="email" class="form-control" 
+                           value="<?php echo $email; ?>" placeholder="Insira seu email">
                 </div>
                 <div class="form-group">
                     <label>Cidade</label>
-                    <input type="text" name="cidade" class="form-control" value="Insira sua cidade">
+                    <input type="text" name="cidade" class="form-control"
+                           value="<?php echo $cidade; ?>" placeholder="Insira sua cidade">
                 </div>
                 <div class="form-group">
                     <label>Estado</label>
                     <select id="estado" name="estado">
+                        <?php if(isset($_GET['edit'])): ?>
+                        <option value="<?= $estado;?>"><?= $estado;?></option>
+                        <?php endif; ?>
                         <option value="Pernambuco">Pernambuco</option>
                         <option value="Paraíba">Paraíba</option>
                         <option value="Sergipe">Sergipe</option>
@@ -48,18 +66,27 @@
                 <div class="form-group">
                     <label>Categoria</label>
                     <select id="categoria" name="categoria">
+                        <?php if(isset($_GET['edit'])): ?>
+                        <option value="<?= $categoria;?>"><?= $categoria;?></option>
+                        <?php endif; ?>
                         <option value="Cliente">Cliente</option>
                         <option value="Fornecedor">Fornecedor</option>
                         <option value="Funcionário">Funcionário</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary" name="salvar">Salvar</button>
+                    <?php
+                    if($update == true):
+                    ?>
+                        <button type="submit" class="btn btn-info" name="atualizar">Atualizar</button>
+                    <?php else: ?>
+                        <button type="submit" class="btn btn-primary" name="salvar">Salvar</button>
+                    <?php endif; ?>
                 </div>
             </form>
         </div>
             <?php
-                $mysqli = new mysqli('localhost', 'root', '', 'agenda-menew') or die(mysqli_error($mysqli));
+                $mysqli = new mysqli('localhost', 'root', '', 'agenda_menew') or die(mysqli_error($mysqli));
                 $result = $mysqli->query("SELECT * FROM agenda ORDER BY nome") or die($mysqli->error);
             ?>
 
