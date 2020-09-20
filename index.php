@@ -10,10 +10,16 @@
     </head>
     <body>
         <header>
-            <div class="container">
-                <img src="images/logo.png" width="150" alt="Menew Logo">
-                <h1>AGENDA</h1>
-            </div>
+            <nav class="navbar navbar-light" style="background-color: #d3362d;">
+                <a class="navbar-brand" href="index.php">
+                  <img src="images/logo-menew.png" width="50" class="d-inline-block align-top" alt="Menew" loading="lazy">
+                  <a class="navbar-brand"></a>
+                  <form class="form-inline" action="process.php" method="GET">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Buscar por nome..." aria-label="Search">
+                    <button class="btn btn-light my-2 my-sm-0" type="submit">Buscar</button>
+                  </form>
+                </a>
+            </nav>
         </header>
         <div class="container">
         <?php require_once 'process.php'; ?>
@@ -29,7 +35,14 @@
         </div>
         <?php endif ?>
         <div class="row justify-content-center">
+            <h1>
+                <span class="red" style="color:rgb(216, 75, 75)">AGENDA</span>
+            </h1>
+        </div>
+        <h3 class="row justify-content-center">- Cadastro -</h3>
+        <div class="row justify-content-center">
             <form action="process.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="form-group">
                     <label>Nome</label>
                     <input type="text" name="nome" class="form-control" 
@@ -78,7 +91,7 @@
                     <?php
                     if($update == true):
                     ?>
-                        <button type="submit" class="btn btn-info" name="atualizar">Atualizar</button>
+                        <button type="submit" class="btn btn-info" name="update">Atualizar</button>
                     <?php else: ?>
                         <button type="submit" class="btn btn-primary" name="salvar">Salvar</button>
                     <?php endif; ?>
@@ -89,38 +102,37 @@
                 $mysqli = new mysqli('localhost', 'root', '', 'agenda_menew') or die(mysqli_error($mysqli));
                 $result = $mysqli->query("SELECT * FROM agenda ORDER BY nome") or die($mysqli->error);
             ?>
-
-            <div class="row justify-content-center">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Telefone</th>
-                            <th>Email</th>
-                            <th>Cidade</th>
-                            <th>Estado</th>
-                            <th>Categoria</th>
-                            <th colspan="2"></th>
-                        </tr>
-                    </thead>
-                    <?php while ($row = $result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo $row['nome']; ?></td>
-                            <td><?php echo $row['telefone']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['cidade']; ?></td>
-                            <td><?php echo $row['estado']; ?></td>
-                            <td><?php echo $row['categoria']; ?></td>
-                            <td>
-                                <a href="index.php?edit=<?php echo $row['id'];?>"
-                                   class="btn btn-info">Editar</a>
-                                <a href="process.php?delete=<?php echo $row['id'];?>"
-                                   class="btn btn-danger">Excluir</a>
-                            </td>
-                        </tr>
-                    <?php endwhile; ?>
-                </table>
-            </div>
+                <div class="row justify-content-center">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Telefone</th>
+                                <th>Email</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>Categoria</th>
+                                <th colspan="2"></th>
+                            </tr>
+                        </thead>
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $row['nome']; ?></td>
+                                <td><?php echo $row['telefone']; ?></td>
+                                <td><?php echo $row['email']; ?></td>
+                                <td><?php echo $row['cidade']; ?></td>
+                                <td><?php echo $row['estado']; ?></td>
+                                <td><?php echo $row['categoria']; ?></td>
+                                <td>
+                                    <a href="index.php?edit=<?php echo $row['id'];?>"
+                                       class="btn btn-info">Editar</a>
+                                    <a href="process.php?delete=<?php echo $row['id'];?>"
+                                       class="btn btn-danger">Excluir</a>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </table>
+                </div>
             <?php
 
                 function dadosSalvos($array) {

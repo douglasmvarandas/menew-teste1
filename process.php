@@ -2,6 +2,9 @@
 
 session_start();
 
+$mysqli = new mysqli('localhost', 'root', '', 'agenda_menew') or die(mysqli_error($mysqli));
+
+$id = 0;
 $update = false;
 $nome = '';
 $telefone = '';
@@ -10,7 +13,28 @@ $cidade = '';
 $estado = '';
 $categoria = '';
 
-$mysqli = new mysqli('localhost', 'root', '', 'agenda_menew') or die(mysqli_error($mysqli));
+if(isset($_GET['search'])){
+    $nome = $_GET['search'];
+    $resultSearch = $mysqli->query("SELECT * FROM agenda WHERE nome LIKE '%$nome%'") or die($mysqli->error());
+    
+    if(isset($resultSearch->num_rows) && $resultSearch->num_rows > 0){
+        $row = $resultSearch->fetch_array(MYSQLI_ASSOC);
+        $nome = $row['nome'];
+        $telefone = $row['telefone'];
+        $email = $row['email'];
+        $cidade = $row['cidade'];
+        $estado = $row['estado'];
+        $categoria = $row['categoria'];     
+    }
+    
+    echo $nome;
+    echo $telefone;
+    echo $email;
+    echo $cidade;
+    echo $estado;
+    echo $categoria;
+    
+}
 
 if (isset($_POST['salvar'])) {
     $nome = $_POST['nome'];
@@ -52,5 +76,23 @@ if(isset($_GET['edit'])){
         $estado = $row['estado'];
         $categoria = $row['categoria'];
     }
+}
+
+if(isset($_POST['update'])){
+    $id = $_POST['id'];
+    $nome = $_POST['nome'];
+    $telefone = $_POST['telefone'];
+    $email = $_POST['email'];
+    $cidade = $_POST['cidade'];
+    $estado = $_POST['estado'];
+    $categoria = $_POST['categoria'];
+    
+    $mysqli->query("UPDATE agenda SET nome='$nome', telefone='$telefone', email='$email', cidade='$cidade', estado='$estado', categoria='$categoria' WHERE id=$id")or
+            die($mysqli->error);
+    
+    $_SESSION['message'] = "Contato atualizado!";
+    $_SESSION['msg_type'] = "warning";
+    
+    header('location: index.php');
 }
 
