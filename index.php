@@ -14,6 +14,10 @@
                 <a class="navbar-brand" href="index.php">
                   <img src="images/logo-menew.png" width="50" class="d-inline-block align-top" alt="Menew" loading="lazy">
                   <a class="navbar-brand"></a>
+                  <form class="form-inline" action="process.php" method="GET">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Buscar por nome..." aria-label="Search">
+                    <button class="btn btn-light my-2 my-sm-0" type="submit">Buscar</button>
+                  </form>
                 </a>
             </nav>
         </header>

@@ -13,6 +13,29 @@ $cidade = '';
 $estado = '';
 $categoria = '';
 
+if(isset($_GET['search'])){
+    $nome = $_GET['search'];
+    $resultSearch = $mysqli->query("SELECT * FROM agenda WHERE nome LIKE '%$nome%'") or die($mysqli->error());
+    
+    if(isset($resultSearch->num_rows) && $resultSearch->num_rows > 0){
+        $row = $resultSearch->fetch_array(MYSQLI_ASSOC);
+        $nome = $row['nome'];
+        $telefone = $row['telefone'];
+        $email = $row['email'];
+        $cidade = $row['cidade'];
+        $estado = $row['estado'];
+        $categoria = $row['categoria'];     
+    }
+    
+    echo $nome;
+    echo $telefone;
+    echo $email;
+    echo $cidade;
+    echo $estado;
+    echo $categoria;
+    
+}
+
 if (isset($_POST['salvar'])) {
     $nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
@@ -72,3 +95,4 @@ if(isset($_POST['update'])){
     
     header('location: index.php');
 }
+
