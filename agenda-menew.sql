@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 -- Banco de dados: `agenda-menew`
 --
 
+CREATE DATABASE `agenda_menew`;
 -- --------------------------------------------------------
 
 --
