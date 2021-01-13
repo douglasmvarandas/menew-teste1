@@ -13,9 +13,24 @@ class ContatoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $contatos = Contato::all();
+        $contatos = [];
+
+        if ($request->has('query')) {
+            $query = $request->query('query');
+            $contatos = Contato::where('nome', 'like', '%'.$query.'%')
+            ->orWhere('telefone', 'like', '%'.$query.'%')
+            ->orWhere('email', 'like', '%'.$query.'%')
+            ->orWhere('cidade', 'like', '%'.$query.'%')
+            ->orWhere('estado', 'like', '%'.$query.'%')
+            ->orWhere('categoria', 'like', '%'.$query.'%')
+            ->get();
+        }
+        else {
+            $contatos = Contato::all();
+        }
+
         return view('contato.index', [
             'contatos' => $contatos
         ]);

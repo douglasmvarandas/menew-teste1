@@ -16,7 +16,6 @@
         <table class="table table-bordered text-center">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Email</th>
@@ -29,7 +28,6 @@
             <tbody>
                 @foreach ($contatos as $contato)
                     <tr>
-                        <th scope="row">{{$contato->id}}</th>
                         <td>{{$contato->nome}}</td>
                         <td>{{$contato->telefone}}</td>
                         <td>{{$contato->email}}</td>

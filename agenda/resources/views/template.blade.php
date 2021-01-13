@@ -35,8 +35,13 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar contato" aria-label="Search">
+                <form class="form-inline my-2 my-lg-0" action="{{route('contato.index')}}">
+                    <input 
+                        class="form-control mr-sm-2" 
+                        type="text" 
+                        name="query" 
+                        placeholder="Pesquisar contato" 
+                        aria-label="Search">
                     <button class="btn btn-success my-2 my-sm-0" type="submit">Pesquisar</button>
                 </form>
             </div>
