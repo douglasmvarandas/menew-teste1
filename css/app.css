@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrant", sans-serif;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    background-color: #f7fafc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.logoIndex{
+    margin-top: 4%;
+    border-radius: 10px;
+    width: 150px;
+}
+.sectionLogo {
+    text-align: center;
+}
+.facaAgendamento{
+    text-align: center;
+}
+.agendar{
+    margin-top: 10%;
+    text-align: center;
+    padding: 0px;
+}
+.agendamentos{
+    text-align: center;
+    padding: 0px;
+}
+.corpo{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 25px;
+    background-color: white;
+    margin: 0 auto;
+    width: 40%;
+    height: 380px;
+    box-shadow: 0 0 10px 0 rgba(120,135,182,.2);
+}
+
+@media screen and (min-width: 900px){
+    .corpo{
+        width: 30%;
+    }
+}
+@media screen and (max-width: 400px){
+    .corpo{
+        width: 85%;
+    }
+}
