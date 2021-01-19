@@ -1,0 +1,26 @@
+#container{
+    width:800px;
+    margin-top: 20%;
+}
+h11 {
+    color:red;
+}
+
+#logo {
+    width:50%;
+    height:50%;
+}
+
+.panel-heading{
+    font-size:150%;
+}
+
+.bg-color{
+    background-color: #F7F8F9;
+}
+.form-cadastro{
+    height: 100vh;
+}
+.area-form{
+    height: 70vh;
+}

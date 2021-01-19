@@ -1,0 +1,1 @@
+PARA QUE O SISTEMA RODE VOCÊ PRECISA CRIAR UM BANCO NO PHPMYADMIM COM O NOME 'bdclientes', e logo após rodar o excript abaixo para criar as tabelas.
