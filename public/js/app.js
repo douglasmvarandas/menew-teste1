@@ -19094,22 +19094,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      formClass: 'collapse ',
+      formClass: "collapse ",
       contacts: [],
       categories: {
-        'client': 'Cliente',
-        'provider': 'Fornecedor',
-        'employee': 'Funcionário'
+        client: "Cliente",
+        provider: "Fornecedor",
+        employee: "Funcionário"
       },
       links: [{
-        name: 'Home',
-        to: '/'
+        name: "Home",
+        to: "/"
       }, {
-        name: 'Page 1',
-        to: '/page-1'
+        name: "Page 1",
+        to: "/page-1"
       }, {
-        name: 'Bad Link',
-        to: '/random-bad-url'
+        name: "Bad Link",
+        to: "/random-bad-url"
       }]
     };
   },
@@ -19124,8 +19124,19 @@ __webpack_require__.r(__webpack_exports__);
     loadContacts: function loadContacts() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/contacts').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/contacts").then(function (response) {
         return _this.contacts = response.data.data;
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      }).then(function () {// always executed
+      });
+    },
+    deleteContact: function deleteContact(id) {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/contacts/" + id).then(function (response) {
+        _this2.reloadContacts();
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -23529,7 +23540,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
   "aria-expanded": "false",
   "aria-controls": "form-add-new",
   type: "button"
-}, "Novo")])], -1
+}, " Novo ")])], -1
 /* HOISTED */
 );
 
@@ -23590,12 +23601,6 @@ var _hoisted_16 = {
   "aria-label": "Ações"
 };
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-  "class": "btn btn-outline-primary"
-}, "Apagar contato", -1
-/* HOISTED */
-);
-
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
@@ -23636,7 +23641,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
         /* PROPS */
         , ["id"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
           id: 'collapse' + contact.id,
-          "class": "accordion-collapse collapse ",
+          "class": "accordion-collapse collapse",
           "aria-labelledby": 'heading' + contact.id,
           "data-bs-parent": "#accordionExample"
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(contact.name) + " ", 1
@@ -23649,7 +23654,14 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
         /* TEXT */
         ), _hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.categories[contact.category]) + " ", 1
         /* TEXT */
-        ), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+        ), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+          "class": "btn btn-outline-primary",
+          onClick: function onClick($event) {
+            return $options.deleteContact(contact.id);
+          }
+        }, "Apagar contato", 8
+        /* PROPS */
+        , ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           "class": "btn btn-primary",
           href: '/contacts/edit/' + contact.id
         }, "Editar contato", 8
@@ -29736,7 +29748,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#form-add-new[data-v-6a63e488] {\n  margin-bottom: 22px;\n}\n.btn-group[data-v-6a63e488] {\n    margin-top: 16px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#form-add-new[data-v-6a63e488] {\n  margin-bottom: 22px;\n}\n.btn-group[data-v-6a63e488] {\n  margin-top: 16px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
