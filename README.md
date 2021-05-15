@@ -2,6 +2,28 @@
 
 ## **TESTE PARA DESENVOLVEDOR (1)**
 
+**Rodando o projeto:**
+
+1. Baixe o repositório do projeto:
+
+```shell script
+$ git clone https://github.com/felipheallef/menew-teste1.git
+```
+
+2. Instale as dependências e faça build do projeto:
+
+```shell script
+$ npm install && npm run dev
+$ composer install
+```
+
+3. Inicie o servidor de testes:
+
+```shell script
+$ php artisan serve
+```
+
+---
 
 **Informações Iniciais:**
 
