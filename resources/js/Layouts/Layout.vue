@@ -1,36 +1,34 @@
 <template>
-  <div>
-  <navbar/>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-1">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Active</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-11">
-        <slot />
+  <main>
+  <sidebar/>
+  <div class="site-content">
+    <!-- <navbar/> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <slot />
+        </div>
       </div>
     </div>
   </div>
-  </div>
+  </main>
 </template>
 
 <script>
 import Navbar from './Navbar.vue'
+import Sidebar from './Sidebar.vue'
 
 export default {
   components: {
     Navbar,
+    Sidebar,
   },
-  prrops: {
+  props: {
     title: String,
   },
   watch: {
     title: {
-      immediate: false,
+      immediate: true,
       handler(title) {
         document.title = title;
       },
@@ -38,3 +36,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.site-content {
+  width: 100% !important;
+  overflow-y: scroll !important;
+}
+</style>

@@ -9,9 +9,9 @@
                 <button class="btn btn-primary" data-bs-toggle="collapse" href="#form-add-new" role="button" aria-expanded="false" aria-controls="form-add-new" type="button">Novo</button>
             </div>
         </div>
-        <div class="collapse" id="form-add-new">
+        <div :class="formClass" id="form-add-new">
             <div class="card card-body">
-                <new-contact-form/>
+                <new-contact-form :do-after-saved="reloadContacts"/>
             </div>
         </div>
         <div class="accordion" id="accordionExample">
@@ -26,12 +26,16 @@
                         <strong>Nome:</strong> {{ contact.name }} <br/>
                         <strong>Email:</strong> {{ contact.email }} <br/>
                         <strong>Telefone:</strong> {{ contact.number }} <br/>
-                        <strong>Cidade:</strong> {{ contact.city }} <br/>
+                        <strong>Cidade:</strong> {{ contact.city }} - {{ contact.state }}<br/>
+                        <strong>Categoria:</strong> {{ categories[contact.category] }} <br/>
+                        <div class="btn-group" role="group" aria-label="Ações">
+                            <button class="btn btn-outline-primary">Apagar contato</button>
+                            <a class="btn btn-primary" :href="'/contacts/edit/'+contact.id">Editar contato</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    {{ counter }}
     </div>
     </layout>
 </template>
@@ -48,8 +52,13 @@ export default {
       NewContactForm,
     },
     data: () => ({
-        counter: 0,
+        formClass: 'collapse ',
         contacts: [],
+        categories: {
+          'client': 'Cliente',
+          'provider': 'Fornecedor',
+          'employee': 'Funcionário'
+        },
         links: [
         {
             name: 'Home',
@@ -66,34 +75,36 @@ export default {
         ]
     }),
     mounted() {
-        setInterval(() => {
-            this.counter++
-        }, 1000)
+        this.loadContacts()
+    },
+    methods: {
+      reloadContacts() {
+          this.formClass = "collapse"
+          this.loadContacts()
+      },
+      loadContacts() {
         axios.get('/api/contacts')
         .then(response => (this.contacts = response.data.data))
-        // .then(function (response) {
-        //     // handle success
-        //     this.data.contacts = response.data.data
-        //     console.log(response);
-        // })
         .catch(function (error) {
             // handle error
             console.log(error);
         })
         .then(function () {
             // always executed
-        });
-    },
-    methods: {
-        reverseMessage() {
-            this.message = this.message
-            .split('')
-            .reverse()
-            .join('')
-    }
+        })
+      }
   }
 }
 </script>
 
 <style scoped>
+
+#form-add-new {
+  margin-bottom: 22px;
+}
+
+.btn-group {
+    margin-top: 16px;
+}
+
 </style>

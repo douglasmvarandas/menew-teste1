@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Contact;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +16,20 @@ use Inertia\Inertia;
 |
 */
 
-Route::inertia('/', 'Home');
+Route::get('/', function () {
+    return Inertia::render('Home', [
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
-// Route::get('/', function () {
-//     return Inertia::render('components/Home.vue', [
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
+Route::get('/contacts/edit/{id}', function ($id) {
+    return Inertia::render('EditContact', [
+        'contact' => Contact::find($id),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
