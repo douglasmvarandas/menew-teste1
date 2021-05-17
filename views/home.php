@@ -44,14 +44,14 @@ require_once dirname(__DIR__) . '/partials/header.php';
                         <td><?= $lista->estado ?></td>
                         <td><?= $lista->categoria ?></td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary">
+                            <a href="<?= $base ?>/views/cadastrar.php?id_contato=<?= $lista->id_contato ?>" class="btn btn-sm btn-primary">
                                 <i class="material-icons">tune</i>
-                            </button>
+                            </a>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-danger">
+                            <a onclick="event.preventDefault();swallTrigger({base:'<?= $base ?>',id:'<?= $lista->id_contato ?>'})" href="#" class="btn btn-sm btn-danger">
                                 <i class="material-icons">clear</i>
-                            </button>
+                            </a>
                         </td>
 
                     </tr>
@@ -60,5 +60,5 @@ require_once dirname(__DIR__) . '/partials/header.php';
         </table>
     </div>
 </div>
-
+<script src="<?= $base ?>/assets/functions.js"></script>
 <?php require_once dirname(__DIR__) . '/partials/footer.php'; ?>
