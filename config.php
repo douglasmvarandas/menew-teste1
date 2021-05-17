@@ -4,9 +4,8 @@ ini_set('display_startup_erros', 1);
 error_reporting(E_ALL);
 session_start();
 
-//EM CASO DE PROBLEMAS COM URL 
-//FAVOR VERIFICAR SE ESTA BASE ESTÁ COM A URL PARA A PASTA RAIZ DO PROJETO
-$base = "http://localhost/teste_01";
+//VERIFICAR SE ESTA VARIÁVEL ESTÁ COM A RAIZ DO PROJETO
+$base = "http://localhost/Teste_menew/teste_01";
 
 $db_name = "teste_menew";
 $db_host = "localhost";
