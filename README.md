@@ -2,5 +2,5 @@
 
 ## **TESTE PARA DESENVOLVEDOR (1)**
 
- Por favor, verificar no arquivo **config.php** Se a variavel base está com a url da pasta raiz do projeto
+ Por favor, verificar no arquivo **config.php** Se a variavel $base está com a url da pasta raiz do projeto
 
