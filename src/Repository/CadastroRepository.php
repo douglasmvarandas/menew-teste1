@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Repository;
+
+use App\Entity\Cadastro;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
+/**
+ * @method Cadastro|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Cadastro|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Cadastro[]    findAll()
+ * @method Cadastro[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class CadastroRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Cadastro::class);
+    }
+
+    /**
+     * @return Cadastro[] Returns an array of Cadastro objects
+     */
+    
+    /* 
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('c.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    */
+    public function BuscarId($value): ?Cadastro
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    
+    public function pegarAtivos()
+    {
+        return $this->createQueryBuilder('c')
+        -> andWhere('u.id >= :val')
+        -> setParameter('val',1)
+        -> getQuery()
+        -> getArrayResult();
+    }
+    
+}
