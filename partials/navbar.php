@@ -13,8 +13,8 @@
                 <a class="nav-link" href="<?= $base ?>/views/cadastrar.php">Novo contato <span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar Contato" aria-label="Search">
+        <form method="POST" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar Contato" aria-label="Search" name="pesquisar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
     </div>

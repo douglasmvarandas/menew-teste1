@@ -1,6 +1,17 @@
 <?php
-require_once 'config.php';
+require_once dirname(__DIR__) . '/config.php';
+require_once dirname(__DIR__) . '/dao/contatosMysql.php';
+
 $title = "Home";
+
+$listDao = new contatosMySql($pdo);
+if ($_POST) {
+    $listContatos = ($listDao->searchContatoByName($_POST['pesquisar'])) ? $listDao->searchContatoByName($_POST['pesquisar']) : [];
+} else {
+    $listContatos = ($listDao->listContatos()) ? $listDao->listContatos() : [];
+}
+
+
 require_once dirname(__DIR__) . '/partials/header.php';
 ?>
 <div class="container">
@@ -23,26 +34,28 @@ require_once dirname(__DIR__) . '/partials/header.php';
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>256985478</td>
-                    <td>mark@email.com</td>
-                    <td>Brasília</td>
-                    <td>DF</td>
-                    <td>Fornecedor</td>
-                    <td>
-                        <button type="button" class="btn btn-sm btn-primary">
-                            <i class="material-icons">tune</i>
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-sm btn-danger">
-                            <i class="material-icons">clear</i>
-                        </button>
-                    </td>
+                <?php foreach ($listContatos as $lista) : ?>
+                    <tr>
+                        <th scope="row"><?= $lista->id_contato ?></th>
+                        <td><?= $lista->nome ?></td>
+                        <td><?= $lista->telefone ?></td>
+                        <td><?= $lista->email ?></td>
+                        <td><?= $lista->cidade ?></td>
+                        <td><?= $lista->estado ?></td>
+                        <td><?= $lista->categoria ?></td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-primary">
+                                <i class="material-icons">tune</i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-danger">
+                                <i class="material-icons">clear</i>
+                            </button>
+                        </td>
 
-                </tr>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
