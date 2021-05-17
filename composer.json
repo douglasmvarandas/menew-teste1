@@ -1,0 +1,17 @@
+{
+    "name": "vinicius/menew-teste1",
+    "description": "Teste de agenda para Menew",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vinicius Moreira",
+            "email": "vmarv@hotmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    }
+}
