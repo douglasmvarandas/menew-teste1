@@ -6,4 +6,9 @@ module.exports = {
             '@': path.resolve('resources/js'),
         },
     },
+    use: [
+        'vue-style-loader',
+        'css-loader',
+        'stylus-loader'
+      ]
 };
