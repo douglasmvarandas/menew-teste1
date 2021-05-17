@@ -18,9 +18,11 @@ function swallTrigger(params) {
                 contentType: false,
                 data: JSON.stringify(params),
                 success: function (resultado) {
-                    window.location.href = resultado.base;
+                    window.location.href = resultado.base
                 }
+
             });
+
         }
     });
 }

@@ -15,6 +15,13 @@ if ($params['nome'] && $params['telefone'] && $params['cidade'] && $params['esta
     $novoContato->estado = $params['estado'];
     $novoContato->categoria = $params['categoria'];
     $insertContato = $contatoDao->insertContato($novoContato);
+    if ($insertContato === true) {
+        $_SESSION['aviso'] = "Cadastro Realizado";
+        $_SESSION['tipo'] = "success";
+    } else {
+        $_SESSION['aviso'] = "Erro no cadastro";
+        $_SESSION['tipo'] = "danger";
+    }
     header("Location:" . $base);
     exit;
 }

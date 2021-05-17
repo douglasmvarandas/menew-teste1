@@ -12,13 +12,16 @@ if ($_POST) {
 }
 
 
+
+$_SESSION['aviso'] = null;
+
 require_once dirname(__DIR__) . '/partials/header.php';
 ?>
 <div class="container">
     <?php require_once dirname(__DIR__) . '/partials/navbar.php'; ?>
 
     <div class="table-responsive">
-        <table class="table caption">
+        <table id="table" class="table caption">
             <caption>Agenda</caption>
             <thead>
                 <tr>
@@ -33,7 +36,7 @@ require_once dirname(__DIR__) . '/partials/header.php';
                     <th scope="col">&nbsp;</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tbody">
                 <?php foreach ($listContatos as $lista) : ?>
                     <tr>
                         <th scope="row"><?= $lista->id_contato ?></th>

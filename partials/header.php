@@ -15,6 +15,7 @@
     <script src="<?= $base ?>/assets/jQuery/jQuery.js"></script>
     <script src="<?= $base ?>/vendor/twbs/bootstrap/dist/js/bootstrap.js"></script>
     <script src="<?= $base ?>/assets/swall2/dist/sweetalert2.all.js"></script>
+    <script src="<?= $base ?>/assets/bootstrap-notify-master/bootstrap-notify.js"></script>
 
 </head>
 
