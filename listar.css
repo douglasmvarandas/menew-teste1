@@ -1,0 +1,77 @@
+body{
+    background-image: url(images/background_image.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+}
+h1 {
+    color: white;
+    margin-left: 570px;
+    margin-top: 5px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.616);
+}
+#main {
+    margin-left: 70px;
+    margin-top: 35px;
+    position: absolute;
+}
+#logo {
+    width: 150px;
+    height: 150px;
+}
+#btn {
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 70px;
+    width: 150px;
+    box-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.411);
+    border-radius: 6px;
+}
+#frame {
+    width: 50px;
+    margin-left: 270px;
+    margin-top: 30px;
+}
+.inp {
+    width: 270px;
+    display: block;
+    padding: 10px;
+    border-style: solid;
+    margin-top: 5px;
+    border-width: 1px;
+    background-color: rgba(255, 255, 255, 0);
+    border-color: #ffffff;
+    border-radius: 6px;
+}
+.dados {
+    color: white;
+}
+@media screen and (max-width: 768px) {
+    h1 {
+        margin-left: 400px;
+    }
+    #main {
+        position: relative;
+        margin-left: 400px;
+        margin-top: 20px;
+    }
+    #frame {
+        position: relative;
+        margin-left: 0px;
+    }
+}
+@media screen and (max-width:600px) {
+    h1 {
+        display: inline-block;
+        margin-left: 350px;
+    }
+    #main {
+        position: relative;
+        margin-left: 350px;
+    }
+    #frame {
+        position: relative;
+    }
+}
