@@ -56,13 +56,13 @@ class __TwigTemplate_5e887e5765f8b558c05cbefdadb7625c39fe11d64c756c56ca406db19d9
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "<div>
+        echo "<div class=\"container\">
 <p>CADASTRO REALIZADO !</p>
-</div>
 <a class=\"btn btn-danger\" href=\"";
-        // line 7
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getUrl("index");
+        // line 6
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getUrl("cadastro");
         echo "\" role=\"button\">Voltar</a>
+</div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -81,7 +81,7 @@ class __TwigTemplate_5e887e5765f8b558c05cbefdadb7625c39fe11d64c756c56ca406db19d9
 
     public function getDebugInfo()
     {
-        return array (  64 => 7,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  63 => 6,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -89,12 +89,12 @@ class __TwigTemplate_5e887e5765f8b558c05cbefdadb7625c39fe11d64c756c56ca406db19d9
         return new Source("{% extends \"base.html.twig\" %}
 
 {% block body %}
-<div>
+<div class=\"container\">
 <p>CADASTRO REALIZADO !</p>
+<a class=\"btn btn-danger\" href=\"{{ url('cadastro') }}\" role=\"button\">Voltar</a>
 </div>
-<a class=\"btn btn-danger\" href=\"{{ url('index') }}\" role=\"button\">Voltar</a>
 {% endblock %}
 
-", "sucesso.html.twig", "/home/marcos/menew/templates/sucesso.html.twig");
+", "sucesso.html.twig", "/home/marcos/menew-teste1/templates/sucesso.html.twig");
     }
 }
