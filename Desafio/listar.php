@@ -10,14 +10,22 @@ $result = mysqli_query($connect, $sql) or die($mysqli->error);
 if (($result) AND ($result -> num_rows !=0)){
     
     while($row_sql = mysqli_fetch_assoc($result)){    
-        echo "ID: " . $row_sql ['idcadastro'] . "  ";
-        echo " | Nome: " . $row_sql ['nome'] . "  ";    
-        echo " | Telefone:" . $row_sql ['telefone'] . "  ";    
-        echo " | E-mail: " . $row_sql ['email'] . "  ";    
-        echo " | Cidade: " . $row_sql ['cidade'] . "  ";    
-        echo " | Estado: " . $row_sql ['estado'] . "  ";    
-        echo " | Categoria: " . $row_sql ['categoria'] . "<br><br>";        
-        }
+       echo"<tr>
+                <td>". $row_sql['idcadastro'] ."</td>";
+            echo"<td>". $row_sql['nome'] ."</td>";
+            echo"<td>". $row_sql['telefone'] ."</td>";
+            echo"<td>". $row_sql['email'] ."</td>";
+            echo"<td>". $row_sql['cidade'] ."</td>";
+            echo"<td>". $row_sql['estado'] ."</td>";
+            echo"<td>". $row_sql['categoria'] ."</td>";
+            echo"<td>
+                        <a href ='index.php'?edit=". $row_sql['idcadastro'] ." class = 'btn btn-info'>Editar
+                    </td>";
+            echo"<td>
+                    <a href ='index.php'?delete=". $row_sql['idcadastro'] ." class = 'btn btn-danger'>Deletar
+                </td>
+            </tr>";
+    }
 
 
 }else{

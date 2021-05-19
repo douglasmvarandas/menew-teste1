@@ -13,7 +13,7 @@ $categoria = filter_input(INPUT_POST, 'categoria', FILTER_SANITIZE_STRING);
 
 $sql = "UPDATE agenda SET nome ='$nome', email ='$email', telefone ='$telefone', cidade = '$cidade', estado = '$estado', categoria = '$categoria' WHERE idcadastro = '$id'";
 
-mysqli_query($connect, $sql);
+mysqli_query($connect, $sql) or die($mysqli->error);;
 
 if(mysqli_affected_rows($connect) > 0){
     echo "Sucesso: Atualizado corretamente!";
