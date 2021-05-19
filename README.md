@@ -1,33 +1,17 @@
-<img src="https://mvarandas.com.br/static/default/images/menew-bymv.png" width="200">
+## Instalação
 
-## **TESTE PARA DESENVOLVEDOR (1)**
+- Fazer o pull request da branch (feature/teste_menew_renato_maldonado)
+- Rodar o comando (composer install), caso não tenha feito.
+- Rodar o comando (php artisan migrate --seed) para construir a base de dados ou rodar a query do arquivo SQL que está na pasta database.
 
+## Subir Servidor
 
-**Informações Iniciais:**
+- Rodar o comando (php artisan serve).
 
-1. Para submeter o seu projeto, **faça um fork** deste repositório e realize um **pull request** para enviar o seu código;
+## Observações
 
-2. O backend deve ser desenvolvido com PHP e o Banco de Dados preferencialmente MySQL;
+- Foram implementados os design patterns repository e service layer.
+- Foi construído comandos para gerar ambos designs que estão no diretório Commands.
+- Caso queria utilizar o comando para gerar um reposity rode (php artisan make:respository "Nome que deseja dar para a model"). Será gerado o repositório, a model, a migration e a factory.
+- Caso queria utilizar o comando para gerar um service rode (php artisan make:service "Nome que deseja dar para a model" "Nome da ação que deseja que o service faço ex.: Cadastrar"). Será gerado o service com a interface, base, abstract, client e o provider.
 
-3. O dump do Banco de Dados deve fazer parte dos arquivos versionados.
-
-**Questão:**
-
-Elaborar uma aplicação de agenda para listar, cadastrar e editar informações.
-
-a) Os campos do formulário são os seguintes:
-
- - nome (input text)
- - telefone (input text)
- - email (input text)
- - cidade (input text)
- - estado (select box com os 5 Estados de sua preferência)
- - categoria (select box com os itens Cliente, Fornecedor e Funcionário)
-
-b) A interface deve ter uma busca de registros e respeitar os seguintes requisitos:
-
- - o código precisa ser bem formatado;
- - precisa respeitar padrões de responsividade;
- - deve ser desenvolvida com o uso de Bootstrap 4;
-
-...Boa Sorte!
