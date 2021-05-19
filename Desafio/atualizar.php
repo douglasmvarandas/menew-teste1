@@ -16,9 +16,11 @@ $sql = "UPDATE agenda SET nome ='$nome', email ='$email', telefone ='$telefone',
 mysqli_query($connect, $sql) or die($mysqli->error);;
 
 if(mysqli_affected_rows($connect) > 0){
-    echo "Sucesso: Atualizado corretamente!";
+    echo "<script>alert('Sucesso: Atualizado corretamente!');
+    window.location='index.php';</script>";
   }else{
-    echo "Aviso: Não foi atualizado!";
+    echo "<script>alert('Aviso: Não foi atualizado!);
+    window.location='index.php';</script>";
   }
 mysqli_close($connect)
 

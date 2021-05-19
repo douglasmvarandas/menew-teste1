@@ -19,13 +19,13 @@ if (($result) AND ($result -> num_rows !=0)){
             echo"<td>". $row_sql['estado'] ."</td>";
             echo"<td>". $row_sql['categoria'] ."</td>";
             echo"<td>
-                    <a href ='atualiza.php?edit=<?php echo $row_sql['idcadastro']?> class = 'btn btn-info'>Editar
+                    <a href ='atualiza.php?edit= {$row_sql['idcadastro']}' class = 'btn btn-info'>Editar
                     </td>";
     }
 
 
 }else{
-    echo "Nenhum resultado encontrado";
+    echo " <h1> alert('Nenhum registro encontrado')</h1>";
 }
 mysqli_close($connect);
 

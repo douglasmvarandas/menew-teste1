@@ -15,9 +15,12 @@ $sql = "INSERT INTO agenda (nome, email, telefone, cidade, estado, categoria) VA
 mysqli_query($connect, $sql) or die ($mysql->error);
 
 if(mysqli_affected_rows($connect) > 0){
-    echo "Cadastrado com Sucesso!";
+    echo "<script>alert('Cadastrado com Sucesso!');
+          window.location='index.php';</script>";
   }else{
-    echo "Não Foi Possivel Cadastrar";
+    echo "<script>alert('Infelizmente não foi possível cadastrar');
+          window.location='index.php';
+          </script>";
   }
 
 mysqli_close($connect);

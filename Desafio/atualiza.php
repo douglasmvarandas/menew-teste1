@@ -8,22 +8,13 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <li class="navbar-brand">
-            <a href="index.php">Novo Agendamento</a>
-        </li>
-        <li class="navbar-brand">
-            <a href="lista.php">Listar Agendamentos</a>
-        </li>
-    </nav>
-
     <section class="row d-flex justify-content-center" style="padding: 40px;">
         <div class="container">
             <h1>Editar Registros</h1>
             <form method="POST" action="atualizar.php">
                 <div class="col">
                     <label>ID:</label>
-                    <input class="form-control" type="text" name="id" placeholder="Digite o ID de Registro" disabled><?php $id = $_GET['edit']; echo $id;?><br>
+                    <input class="form-control" type="text" name="id" value="<?php $id = $_GET['edit']; echo $id;?>"readonly><br>
                     <label>Nome:</label>
                     <input class="form-control" type="text" name="nome" placeholder="Digite o Seu Nome" required><br>
                     <label>Telefone:</label>
@@ -50,7 +41,7 @@
                     </select>
                     <br><br>
                     <div class="col">
-                        <input type="submit" class="btn btn-primary" value="Editar" onclick="window.location.href = 'index.php'">
+                        <button type="submit" class="btn btn-primary" onsubmit="index.php">Editar</button>
                     </div>
                 </div>
             </form>
