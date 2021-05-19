@@ -78,7 +78,7 @@ class __TwigTemplate_8a31ddba2c34c91d393dcb195790ab866a9f4e5207b44ac2692aeb79db6
       <option value=\"Fornecedor\">Fornecedor</options>
       <option value=\"Funcionario\">Funcionário</options>      
     </select>    
-    <br><br>
+    <br><br>      
     <button class=\"btn btn-danger\" type=\"sumit\">Salvar</button>
 </form>
 </div>
@@ -127,12 +127,12 @@ class __TwigTemplate_8a31ddba2c34c91d393dcb195790ab866a9f4e5207b44ac2692aeb79db6
       <option value=\"Fornecedor\">Fornecedor</options>
       <option value=\"Funcionario\">Funcionário</options>      
     </select>    
-    <br><br>
+    <br><br>      
     <button class=\"btn btn-danger\" type=\"sumit\">Salvar</button>
 </form>
 </div>
 {% endblock %}
 
-", "cadastro.html.twig", "/home/marcos/menew/templates/cadastro.html.twig");
+", "cadastro.html.twig", "/home/marcos/menew-teste1/templates/cadastro.html.twig");
     }
 }
