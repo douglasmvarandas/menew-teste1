@@ -3,19 +3,12 @@
 
 <head>
     <meta charset="utf8">
-    <title> Cadastrar </title>
+    <title> Crud-Agenda </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <li class="navbar-brand">
-            <a href="lista.php">Listar Agendamento</a>
-        </li>
-        <li class="navbar-brand">
-            <a href="atualiza.php">Editar Agendamento</a>
-        </li>
-    </nav>
+
     <div class="container">
         <div class="row d-flex justify-content-center" style="padding: 40px;">
             <form method="POST" action="cadastrar.php">
@@ -83,7 +76,7 @@
                         </tr>
                     </thead>
                         <?php
-                        include('listar.php')
+                        include('listar.php');
                         ?>
                 </table>
             </div>

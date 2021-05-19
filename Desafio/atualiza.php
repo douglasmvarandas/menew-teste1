@@ -23,7 +23,7 @@
             <form method="POST" action="atualizar.php">
                 <div class="col">
                     <label>ID:</label>
-                    <input class="form-control" type="text" name="id" placeholder="Digite o ID de Registro" required><br>
+                    <input class="form-control" type="text" name="id" placeholder="Digite o ID de Registro" disabled><?php $id = $_GET['edit']; echo $id;?><br>
                     <label>Nome:</label>
                     <input class="form-control" type="text" name="nome" placeholder="Digite o Seu Nome" required><br>
                     <label>Telefone:</label>

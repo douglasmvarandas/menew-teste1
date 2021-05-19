@@ -19,12 +19,8 @@ if (($result) AND ($result -> num_rows !=0)){
             echo"<td>". $row_sql['estado'] ."</td>";
             echo"<td>". $row_sql['categoria'] ."</td>";
             echo"<td>
-                        <a href ='index.php'?edit=". $row_sql['idcadastro'] ." class = 'btn btn-info'>Editar
+                    <a href ='atualiza.php?edit=<?php echo $row_sql['idcadastro']?> class = 'btn btn-info'>Editar
                     </td>";
-            echo"<td>
-                    <a href ='index.php'?delete=". $row_sql['idcadastro'] ." class = 'btn btn-danger'>Deletar
-                </td>
-            </tr>";
     }
 
 
