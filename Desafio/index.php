@@ -18,7 +18,7 @@
     </nav>
     <div class="container">
         <div class="row d-flex justify-content-center" style="padding: 40px;">
-            <form method="POST" action="processos.php">
+            <form method="POST" action="cadastrar.php">
                 <h1>Formulário de Agendamento</h1>
                 
                     <br>
