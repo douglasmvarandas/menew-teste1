@@ -4,8 +4,8 @@
 
 <main class="container p-4">
   <div class="row">
-    <div class="col-md-4">
-      <!-- MESSAGES -->
+    <div class="col-md-12 mx-auto">
+      <!-- MESSAGES (SALVO,ATUALIZADO...) -->
 
       <?php if (isset($_SESSION['message'])) { ?>
       <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
@@ -16,65 +16,29 @@
       </div>
       <?php session_unset(); } ?>
 
-      <!-- FORM PESQUISA -->
-      <div class="card card-body">          
+      <!-- FORM PESQUISA -->                
           <form method="POST" action="">                    
             <h5>Pesquisa</h5>
-            <div class="form-group">              
-              <input type="text" name="entrada" class="form-control" placeholder="Ex: Recife">
-            </div>    
+            <div class="form-group row"> 
+              <div class="col-sm-5">
+                <input type="text" name="entrada" class="form-control" placeholder="Ex: Recife">
+              </div>
 
-            <div class="form-group">                       
-             <input type="submit" name="submit" class="btn btn-success btn-block" value="Pesquisar">
+              <div class="col-sm-5">
+                  <input type="submit" name="submit" class="btn btn-success" value="Pesquisar">
+              </div>
+              
+              <div class="col-sm-1">
+                  <a href="cadastrar.php" type="submit" class="btn btn-success">Adicionar</a>
+              </div> 
             </div>
-        </form> 
-      </div> 
-      <!-- FIM - FORM PESQUISA -->
-<br>
-      <!-- FORMULARIO CADASTRO -->
-      <div class="card card-body">
-        <form action="save.php" method="POST">
-          <h5>Novo Cadastro</h5>
-          <div class="form-group">
-            <input type="text" name="nome" class="form-control" placeholder="Nome" required="required" autofocus>
-          </div>
-          <div class="form-group">            
-             <input type="tel" pattern="\d*" name="telefone" class="form-control" placeholder="Telefone" required="required">
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" class="form-control" placeholder="Email" required="required" autofocus>
-          </div>
-          <div class="form-group">
-            <input type="text" name="cidade" class="form-control" placeholder="Cidade" required="required" autofocus>
-          </div>
-
-          <div class="form-group">
-            Estado:
-            <select name="estado" class="form-select" aria-label="Default select example">         
-              <option>São Paulo</option>
-              <option>Rio de Janeiro</option>
-              <option>Recife</option>
-              <option>Piaui</option>
-              <option>Bahia</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            Categoria:
-            <select name="categoria" class="form-select" aria-label="Default select example">      
-              <option>Cliente</option>
-              <option>Fornecedor</option>
-              <option>Funcionario</option>
-            </select>
-          </div>
-          <input type="submit" name="save" class="btn btn-success btn-block" value="Salvar">
-        </form> 
-      </div>
-      <!-- FIM FORMULARIO CADASTRO-->
+        </form>       
+      <br>
+      <!-- FIM - FORM PESQUISA -->    
+    </div>
 
     <!-- TABELA COM DADOS DO BANCO-->
-    </div>
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="table-responsive">
         <table class="table table-bordered">
           <thead>

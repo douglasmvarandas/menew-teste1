@@ -81,6 +81,8 @@ if (isset($_POST['update'])) {
           </div>
 
         <button class="btn-success" name="update">Atualizar</button>
+        <button onclick="location.href='index.php'" class="btn-danger" type="button">Cancelar</button>
+
       </form>
       </div>
     </div>
