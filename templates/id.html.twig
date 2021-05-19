@@ -1,11 +1,20 @@
 {% extends "base.html.twig" %}
 
 {% block topo %}
-    <p>CONSULTA À API</p>
+    {% if count > 0 %}
+    <p class="container">CONSULTA AOS DADOS</p>    
+    {% else %}
+    <p class="container">Desculpe. Sem dados a serem exibidos!</p>    
+    {% endif %}
 {% endblock %}
 
 {% block body %}
-
-<a class="btn btn-danger" href="{{ url('index') }}" role="button">Voltar</a>
-
+{% for consulta in msg %}    
+    <div class="container">
+    <ul>
+    <li> {{ consulta.id }} - {{ consulta.nome }} - {{ consulta.email }} - {{ consulta.telefone }} - {{ consulta.cidade }} - {{ consulta.estado }} - {{ consulta.categoria }}</li>
+    </ul>
+    <a class="btn btn-danger" href="{{ url('consulta') }}" role="button">Voltar</a>
+    </div>
+{% endfor %}
 {% endblock %}

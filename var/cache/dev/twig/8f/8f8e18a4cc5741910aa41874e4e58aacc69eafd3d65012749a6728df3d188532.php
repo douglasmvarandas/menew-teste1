@@ -57,28 +57,62 @@ class __TwigTemplate_b10cf22fe353714264915e76a3aba02bc5423b8f73e4db9500995baf28a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "topo"));
 
         // line 4
-        echo "    <p>CONSULTA À API</p>
-";
+        echo "    ";
+        if ((1 === twig_compare((isset($context["count"]) || array_key_exists("count", $context) ? $context["count"] : (function () { throw new RuntimeError('Variable "count" does not exist.', 4, $this->source); })()), 0))) {
+            // line 5
+            echo "    <p class=\"container\">CONSULTA AOS DADOS</p>    
+    ";
+        } else {
+            // line 7
+            echo "    <p class=\"container\">Desculpe. Sem dados a serem exibidos!</p>    
+    ";
+        }
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
     }
 
-    // line 7
+    // line 11
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 8
-        echo "
-<a class=\"btn btn-danger\" href=\"";
-        // line 9
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getUrl("index");
-        echo "\" role=\"button\">Voltar</a>
-
+        // line 12
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["msg"]) || array_key_exists("msg", $context) ? $context["msg"] : (function () { throw new RuntimeError('Variable "msg" does not exist.', 12, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["consulta"]) {
+            echo "    
+    <div class=\"container\">
+    <ul>
+    <li> ";
+            // line 15
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["consulta"], "id", [], "any", false, false, false, 15), "html", null, true);
+            echo " - ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["consulta"], "nome", [], "any", false, false, false, 15), "html", null, true);
+            echo " - ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["consulta"], "email", [], "any", false, false, false, 15), "html", null, true);
+            echo " - ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["consulta"], "telefone", [], "any", false, false, false, 15), "html", null, true);
+            echo " - ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["consulta"], "cidade", [], "any", false, false, false, 15), "html", null, true);
+            echo " - ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["consulta"], "estado", [], "any", false, false, false, 15), "html", null, true);
+            echo " - ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["consulta"], "categoria", [], "any", false, false, false, 15), "html", null, true);
+            echo "</li>
+    </ul>
+    <a class=\"btn btn-danger\" href=\"";
+            // line 17
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getUrl("consulta");
+            echo "\" role=\"button\">Voltar</a>
+    </div>
 ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['consulta'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -96,7 +130,7 @@ class __TwigTemplate_b10cf22fe353714264915e76a3aba02bc5423b8f73e4db9500995baf28a
 
     public function getDebugInfo()
     {
-        return array (  78 => 9,  75 => 8,  68 => 7,  60 => 4,  53 => 3,  36 => 1,);
+        return array (  108 => 17,  91 => 15,  83 => 12,  76 => 11,  67 => 7,  63 => 5,  60 => 4,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -104,14 +138,23 @@ class __TwigTemplate_b10cf22fe353714264915e76a3aba02bc5423b8f73e4db9500995baf28a
         return new Source("{% extends \"base.html.twig\" %}
 
 {% block topo %}
-    <p>CONSULTA À API</p>
+    {% if count > 0 %}
+    <p class=\"container\">CONSULTA AOS DADOS</p>    
+    {% else %}
+    <p class=\"container\">Desculpe. Sem dados a serem exibidos!</p>    
+    {% endif %}
 {% endblock %}
 
 {% block body %}
-
-<a class=\"btn btn-danger\" href=\"{{ url('index') }}\" role=\"button\">Voltar</a>
-
+{% for consulta in msg %}    
+    <div class=\"container\">
+    <ul>
+    <li> {{ consulta.id }} - {{ consulta.nome }} - {{ consulta.email }} - {{ consulta.telefone }} - {{ consulta.cidade }} - {{ consulta.estado }} - {{ consulta.categoria }}</li>
+    </ul>
+    <a class=\"btn btn-danger\" href=\"{{ url('consulta') }}\" role=\"button\">Voltar</a>
+    </div>
+{% endfor %}
 {% endblock %}
-", "id.html.twig", "/home/marcos/menew/templates/id.html.twig");
+", "id.html.twig", "/home/marcos/menew-teste1/templates/id.html.twig");
     }
 }

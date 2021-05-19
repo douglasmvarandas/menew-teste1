@@ -105,10 +105,14 @@ class DefaultController extends AbstractController
         $doctrine_gm = $this->getDoctrine()->getManager();
         $doctrine_gr = $this->getDoctrine()->getRepository(Cadastro::class);         
         $u = $doctrine_gr->findBy($request->request->all());
+        
+        // Retorno na API
         dump($doctrine_gr->findBy($request->request->all()));     
-        //return new Response('Consulta Realizada ', 200);
-        return $this->render("id.html.twig",[
-            'msg' => is_string($u),
+        
+        // Retorno no HTML        
+        return $this->render('id.html.twig',[            
+            'msg' => $u,
+            'count' => count($u)
         ]);
         
         
