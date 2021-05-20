@@ -56,3 +56,9 @@ a72a63,127.0.0.1,GET,https://localhost:8000/quemsomos,1621465491,,200
 d742a7,127.0.0.1,GET,https://localhost:8000/cadastro,1621471058,,200
 0317a3,127.0.0.1,GET,https://localhost:8000/cadastro,1621471909,,200
 9fe239,127.0.0.1,GET,https://localhost:8000/,1621471910,,200
+a592ad,127.0.0.1,GET,https://localhost:8000/,1621471977,,200
+b65b4b,127.0.0.1,GET,https://localhost:8000/quemsomos,1621472006,,200
+7cdb54,127.0.0.1,GET,https://localhost:8000/,1621472009,,200
+0872fd,127.0.0.1,GET,https://localhost:8000/consulta,1621472011,,200
+49bb08,127.0.0.1,POST,https://localhost:8000/consultar,1621472012,,200
+2b3005,127.0.0.1,GET,https://localhost:8000/consulta,1621472014,,200
