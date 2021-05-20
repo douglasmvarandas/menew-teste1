@@ -1,0 +1,77 @@
+.def-background{
+    background: linear-gradient(130deg,rgb(200 230 236 / 61%) 0%, rgba(255,255,255,1) 100%);
+}
+
+.botao{
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px 0px black;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.cabecalho{
+    background: linear-gradient(90deg, rgba(157,157,157,0.1) 0%, rgba(157,157,157,0.1) 50%, rgba(186,186,186,0.1) 100%);
+    padding-top: 1%;
+    margin-bottom: 1%;
+    font-weight: bold;
+}
+
+.dado{    
+    padding-top: 2%;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+}
+
+.page{
+    padding-bottom: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    box-shadow: 1px 1px 3px 0 black;
+    border-radius: 3px;
+    padding: 50px;
+}
+
+#titulo{
+    margin-bottom: 50px;
+}
+
+#formulario{
+    text-align: -webkit-center;
+}
+
+#enviar{
+    margin-top: 20px;
+}
+
+#buscador{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#inicio{
+    margin-top: 20px;
+}
+
+#voltar{
+    text-decoration: none;
+}
+
+hr{
+    margin: 0px;
+}
+
+form{
+    border-style: solid;
+    border-width: 1px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 1px 1px 3px 0 black;
+    background-color: white;
+    border-radius: 3px;
+}
+
+label{
+    margin: 10px;
+}
