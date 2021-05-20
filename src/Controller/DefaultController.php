@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Entity\Cadastro;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,40 +20,40 @@ class DefaultController extends AbstractController
      */
     public function index(): Response
     {
-       return $this->Render("menew.html.twig");
-    } 
+        return $this->Render("menew.html.twig");
+    }
 
     /**
      * @Route("/cadastro", methods={"GET","POST"}, name="cadastro")
      */
     public function cadastro(): Response
     {
-       return $this->Render("cadastro.html.twig");
-    } 
+        return $this->Render("cadastro.html.twig");
+    }
 
     /**
      * @Route("/consulta", methods={"GET","POST"}, name="consulta")
      */
     public function consulta(): Response
     {
-       return $this->Render("consulta.html.twig");
-    } 
+        return $this->Render("consulta.html.twig");
+    }
 
     /**
      * @Route("/quemsomos", methods={"GET","POST"}, name="quemsomos")
      */
     public function quemsomos(): Response
     {
-       return $this->Render("quemsomos.html.twig");
-    } 
+        return $this->Render("quemsomos.html.twig");
+    }
 
     /**
      * @Route("/sair", methods={"GET","POST"}, name="sair")
      */
     public function sair(): Response
     {
-        die("Agradecemos a sua visita, até logo!");       
-    } 
+        die("Agradecemos a sua visita, volte sempre");
+    }
 
 
     /**
@@ -60,11 +61,11 @@ class DefaultController extends AbstractController
      */
     public function salvar(Request $request): Response
     {
-        // Recebe os dados do formulário
+        // Recebe os dados do formulario
         $dados = $request->request->all();
 
-        // Atribui os valores dos forms as variáveis
-        $usuario = new Cadastro;
+        // Atribui os valores dos forms as variaveis
+        $usuario = new Cadastro();
         $usuario->setNome($dados['nome']);
         $usuario->setEmail($dados['email']);
         $usuario->setTelefone($dados['telefone']);
@@ -79,19 +80,15 @@ class DefaultController extends AbstractController
         // Execute
         $doctrine->flush();
 
-        if ( $usuario->getId() ) 
-        {
-            return $this->render("sucesso.html.twig",[
+        if ($usuario->getId()) {
+            return $this->render("sucesso.html.twig", [
                 "fulano" => $dados['nome']
             ]);
-        } 
-        else
-        {
-            return $this->render("erro.html.twig",[
+        } else {
+            return $this->render("erro.html.twig", [
                 "fulano" => $dados['nome']
             ]);
-        }    
-
+        }
     }
 
     /**
@@ -100,22 +97,19 @@ class DefaultController extends AbstractController
     public function consultar(Request $request): Response
     {
         $dados = $request->request->all();
-        $usuario = new Cadastro;     
-        $usuario->getId($dados['id']);   
+        $usuario = new Cadastro();
+        $usuario->getId($dados['id']);
         $doctrine_gm = $this->getDoctrine()->getManager();
-        $doctrine_gr = $this->getDoctrine()->getRepository(Cadastro::class);         
+        $doctrine_gr = $this->getDoctrine()->getRepository(Cadastro::class);
         $u = $doctrine_gr->findBy($request->request->all());
-        
+
         // Retorno na API
-        dump($doctrine_gr->findBy($request->request->all()));     
-        
-        // Retorno no HTML        
-        return $this->render('id.html.twig',[            
+        dump($doctrine_gr->findBy($request->request->all()));
+
+        // Retorno no HTML
+        return $this->render('id.html.twig', [
             'msg' => $u,
             'count' => count($u)
         ]);
-        
-        
-
-    }    
+    }
 }

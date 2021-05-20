@@ -10,7 +10,8 @@ class DefaultControllerTest extends TestCase
 {
     public function testSalvarDefaultUsage()
     {
+        $esperado="ok";
         $resultado = "ok";
-        $this->assertEquals("ok", $resultado);
+        $this->assertEquals($esperado, $resultado);
     }
 }

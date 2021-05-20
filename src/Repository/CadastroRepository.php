@@ -22,8 +22,8 @@ class CadastroRepository extends ServiceEntityRepository
     /**
      * @return Cadastro[] Returns an array of Cadastro objects
      */
-    
-    /* 
+
+    /*
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('c')
@@ -45,14 +45,14 @@ class CadastroRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    
+
     public function pegarAtivos()
     {
         return $this->createQueryBuilder('c')
         -> andWhere('u.id >= :val')
-        -> setParameter('val',1)
+        -> setParameter('val', 1)
         -> getQuery()
-        -> getArrayResult();
+        -> getArrayResult()
+        ;
     }
-    
 }
