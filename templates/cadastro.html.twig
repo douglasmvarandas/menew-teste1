@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+<form method="POST" action="{{ url('salvar') }}">
+    <br>
+    Nome <input type="text" name="nome" placeholder="Digite o nome" required><br>
+    Telefone <input type="tel" name="telefone" size="14" placeholder="Ex: (99)99999-9999" required><br>
+    Email <input type="email" name="email" placeholder="Ex: email@menew.com.br" required><br>
+    Cidade <input type="text" name="cidade" placeholder="Ex: João Pessoa" required><br>
+    Estado <select name="estado" id="uf">
+      <option value="CE">CE</options>
+      <option value="RN">RN</options>
+      <option value="PB">PB</options>
+      <option value="PE">PE</options>
+      <option value="AL">AL</options>
+    </select><br>
+    Categoria <select name="categoria" id="cat">
+      <option value="Cliente">Cliente</options>
+      <option value="Fornecedor">Fornecedor</options>
+      <option value="Funcionario">Funcionário</options>      
+    </select>    
+    <br><br>      
+    <button class="btn btn-danger" type="sumit">Salvar</button>
+</form>
+</div>
+{% endblock %}
+

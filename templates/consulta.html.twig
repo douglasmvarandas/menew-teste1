@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+<form method="POST" action="{{ url('consultar') }}">
+    <br>
+    Id: <input type="number" name="id" placeholder="Digite um Id" value="1" min="1" required><br>
+    <br>
+    <button class="btn btn-danger" type="sumit">Pesquisar</button>
+</form>
+</div>
+
+{% endblock %}
+
