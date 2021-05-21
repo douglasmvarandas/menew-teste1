@@ -18,7 +18,6 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $this->tableJson();
         $queryCategory = DB::table('category_client')->get();
         $queryState = DB::table('state')->get();
 
@@ -28,7 +27,8 @@ class AdminController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Displays all bank records with status 1
+     * @queryClient
      *
      * @return \Illuminate\Http\Response
      */
@@ -42,7 +42,6 @@ class AdminController extends Controller
         return DataTables::of($queryClient)
             ->addColumn('action', function ($queryClient) {
                 return
-
                     '<button onclick="viewClient(' . $queryClient->id_client . ')" class="btn btn-secondary"><i class="fas fa-eye"></i></button>' .
                     '<button onclick="editClient(' . $queryClient->id_client . ')" class="btn btn-warning"><i class="fas fa-edit"></i></i></button>' .
                     '<button onclick="deleteClient(' . $queryClient->id_client . ')" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>';
