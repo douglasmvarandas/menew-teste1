@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminRequest;
-use App\Models\City;
 use App\Models\Client;
-use App\Models\Contact;
-use App\Models\State;
-use App\Models\TypeClient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
