@@ -1,0 +1,111 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,300');
+
+
+
+body {
+	padding: 10px 15% 30px 8%;
+	font-family: 'Montserrat', sans-serif;
+	background-color: white;
+	color: black;
+}
+
+
+h3 {
+	color: #ff0000;
+	margin-top: 50px;
+}
+
+h4 {
+	color: rgb(255, 0, 0);
+	display: inline-block;
+}
+
+p {
+	display: inline-block;
+}
+
+.pre {
+	white-space: pre;
+}
+
+a, a:visited {
+	color: white;
+	
+}
+
+table {
+	border-collapse: collapse;
+	text-align: center;
+}
+
+th {
+	background-color: white;
+	color: #2b2b2b;
+}
+
+td, th {
+	border: 1px solid white;
+	padding: 8px 65px;
+
+}
+
+.doctable-table tr td {
+	padding: 15px 0;
+}
+
+.doctable-table .emphasis {
+	color: #f27609;
+}
+
+
+
+form .field {
+	background-color: transparent;
+	font-family: 'Montserrat', sans-serif;
+	border: 1px solid black;
+	color: black;
+	padding-left: 10px;
+	height: 32px;
+	margin-top: 5px;
+	width: 300px;
+
+}
+
+form .submit {
+	background-color: #ff0000;
+	font-family: 'Montserrat', sans-serif;
+	border: none;
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+	border-radius: 50px;
+	cursor: pointer;
+	height: 40px;
+	width: 310px;
+	margin-top: 20px;
+
+
+}
+
+form .submit:hover {
+	background-color: white;
+	color: #ff0000;
+	transition: 0.5s;
+}
+
+.erro-form {
+	color: red;
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+.sucesso-form {
+	color: rgb(0, 116, 10);
+	font-size: 12px;
+	margin-top: 15px;
+}
+
+
+
