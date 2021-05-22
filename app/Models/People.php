@@ -23,4 +23,24 @@ class People extends Model
         'city_id',
         'category_id',
     ];
+
+    /**
+     * Establish relationship.
+     *
+     * @return void
+     */
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    /**
+     * Establish relationship.
+     *
+     * @return void
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

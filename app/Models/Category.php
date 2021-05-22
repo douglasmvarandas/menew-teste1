@@ -19,4 +19,14 @@ class Category extends Model
     protected $fillable = [
         'name',
     ];
+
+    /**
+     * Establish relationship.
+     *
+     * @return void
+     */
+    public function people()
+    {
+        return $this->hasMany(People::class);
+    }
 }

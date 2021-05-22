@@ -30,4 +30,14 @@ class City extends Model
     {
         return $this->belongsTo(Country::class);
     }
+
+    /**
+     * Establish relationship.
+     *
+     * @return void
+     */
+    public function people()
+    {
+        return $this->hasMany(People::class);
+    }
 }
