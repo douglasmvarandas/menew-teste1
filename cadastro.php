@@ -33,36 +33,36 @@
             </div>
         </nav>
     </div>
-    <div class="display">
+
     <div class="container-fluid container" style="margin-bottom: 100px;">
         <h4>
             <p style="padding-top: 10px;">Cadastro</p>
         </h4>
-        <form action="index.php">
+        <form action="connect/_inserir_cadastro.php" method="post">
             <!--nome-->
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nome</label>
-                <input type="text" class="form-control" autocomplete="off" required>
+                <label class="form-label">Nome</label>
+                <input type="text" class="form-control" name="nomeE" autocomplete="off" required>
             </div>
             <!--telefone-->
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Telefone</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" autocomplete="off" required>
+                <label class="form-label">Telefone</label>
+                <input type="number" class="form-control" name="telE" autocomplete="off" required>
             </div>
             <!--email-->
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" autocomplete="off" aria-describedby="emailHelp">
+                <input type="email" class="form-control" name="emailE" id="exampleInputEmail1" autocomplete="off" aria-describedby="emailHelp">
             </div>
             <!--cidade-->
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Cidade</label>
-                <input type="text" class="form-control" autocomplete="off" required>
+                <label class="form-label">Cidade</label>
+                <input type="text" class="form-control" name="cidadeE" autocomplete="off" required>
             </div>
             <!--estado-->
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Estado</label>
-                <select class="form-control" name="estadoC" style="width: 100%;" required>
+                <label class="form-label">Estado</label>
+                <select class="form-control" name="estadoE" style="width: 100%;" required>
 						<option></option>
 						<option>Alogoas</option>
 						<option>Bahia</option>
@@ -73,8 +73,8 @@
             </div>
             <!--categoria-->
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Categoria</label>
-                <select class="form-control" name="categoriaC" required>
+                <label class="form-label">Categoria</label>
+                <select class="form-control" name="categoriaE" required>
 						<option></option>
 						<option>Cliente</option>
 						<option>Fornecedor</option>
@@ -84,12 +84,8 @@
             <button type="submit" class="btn">Cadastrar</button>
         </form>
     </div>
-    </div>
-    
-
 
     
-  
     <script type="text/javascript" src="js/bootstrap.js"></script>
 
 </body>
