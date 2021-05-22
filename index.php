@@ -24,12 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="cadastro.php">Cadastrar</a>
                     </li>
-                    <!--<li class="nav-item">
-                        <a class="nav-link" href="#"></a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>-->
+                        <a class="nav-link" href="listar.php">Listar</a>
+                    </li>
                 </ul>
                 </div>
             </div>
