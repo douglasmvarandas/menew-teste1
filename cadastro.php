@@ -34,11 +34,11 @@
         </nav>
     </div>
 
-    <div class="container">
-        <h4 style="margin-top: 20px;">
-            <p>Cadastro</p>
+    <div class="container" style="margin-bottom: 100px;">
+        <h4>
+            <p style="padding-top: 10px;">Cadastro</p>
         </h4>
-        <form>
+        <form class="form-group">
             <!--nome-->
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nome</label>
@@ -62,16 +62,32 @@
             <!--estado-->
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Estado</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <select class="form-control" name="estadoC" style="width: 100%;" required>
+						<option></option>
+						<option>Alogoas</option>
+						<option>Bahia</option>
+						<option>Ceará</option>
+						<option>Maranhão</option>
+						<option>Paraíba</option>
+				</select>
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <!--categoria-->
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Categoria</label>
+                <select class="form-control" name="categoriaC" required>
+						<option></option>
+						<option>Cliente</option>
+						<option>Fornecedor</option>
+						<option>Funcionário</option>
+			    </select>
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
+
+    
     
     <script type="text/javascript" src="js/bootstrap.js"></script>
+
 </body>
 </html>

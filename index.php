@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/cadastro.css">
 </head>
 <body>
+    
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
@@ -33,7 +34,7 @@
             </div>
         </nav>
     </div>
-    
+    <img class="img" src="img/wp_01.jpg" width="100%" alt="Image Fail">
     <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
