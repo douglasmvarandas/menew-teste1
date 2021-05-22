@@ -19,6 +19,9 @@
         @apply mt-2;
         @apply mb-4;
     }
+    td, th {
+        @apply py-1;
+    }
     .errorMessage {
         @apply text-red-500;
         @apply text-sm;

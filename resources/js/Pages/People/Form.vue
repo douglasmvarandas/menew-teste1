@@ -1,12 +1,17 @@
 <template>
     <breeze-authenticated-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                People ADD
-            </h2>
-            <inertia-link as="button" :href="route('people.index')">
-                BACK
-            </inertia-link>
+            <div class="flex justify-between items-center">
+                <h2 v-if="!this.person" class="font-semibold text-xl text-gray-800 leading-tight">
+                    People ADD
+                </h2>
+                <h2 v-else class="font-semibold text-xl text-gray-800 leading-tight">
+                    People ATT
+                </h2>
+                <inertia-link as="button" :href="route('people.index')" class="bg-red-500 hover:bg-red-400 rounded-lg py-2 px-6 text-white uppercase">
+                    BACK
+                </inertia-link>
+            </div>
         </template>
 
         <div class="py-12">
@@ -42,7 +47,8 @@
                                 </option>
                             </select>
 
-                            <button type="submit" class="bg-green-500 hover:bg-green-400 rounded-lg py-2 mt-2 text-white uppercase">REGISTER</button>
+                            <button v-if="!this.person" type="submit" class="bg-green-500 hover:bg-green-400 rounded-lg py-2 mt-2 text-white uppercase">REGISTER</button>
+                            <button v-else type="submit" class="bg-green-500 hover:bg-green-400 rounded-lg py-2 mt-2 text-white uppercase">UPDATE</button>
                         </form>
                     </div>
                 </div>
