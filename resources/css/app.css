@@ -19,4 +19,8 @@
         @apply mt-2;
         @apply mb-4;
     }
+    .errorMessage {
+        @apply text-red-500;
+        @apply text-sm;
+    }
 }

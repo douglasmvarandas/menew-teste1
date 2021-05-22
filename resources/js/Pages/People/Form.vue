@@ -15,15 +15,19 @@
                     <div class="p-6 bg-white border-b">
                         <form @submit.prevent="submit" class="px-4">
                             <label for="name">Name:</label>
+                            <div v-if="errors.name" class="errorMessage">{{ errors.name }}</div>
                             <input id="name" v-model="form.name" />
 
                             <label for="phone">Phone:</label>
+                            <div v-if="errors.phone" class="errorMessage">{{ errors.phone }}</div>
                             <input id="phone" v-model="form.phone" />
 
                             <label for="email">E-mail:</label>
+                            <div v-if="errors.email" class="errorMessage">{{ errors.email }}</div>
                             <input id="email" v-model="form.email" />
 
                             <label for="city">City:</label>
+                            <div v-if="errors.city" class="errorMessage">{{ errors.city }}</div>
                             <select v-model="form.city" id="city">
                                 <option v-for="city in cities" :key="city.id" :value="city.id">
                                     {{ city.name }}
@@ -31,6 +35,7 @@
                             </select>
 
                             <label for="category">Category:</label>
+                            <div v-if="errors.category" class="errorMessage">{{ errors.category }}</div>
                             <select v-model="form.category" id="category">
                                 <option v-for="category in categories" :key="category.id" :value="category.id">
                                     {{ category.name }}

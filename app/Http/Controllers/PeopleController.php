@@ -68,7 +68,23 @@ class PeopleController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $validated = $request->validate([
+            'name' => 'required|string|min:5',
+            'phone' => 'required|numeric|unique:people',
+            'email' => 'required|email|unique:people',
+            'city' => 'required|numeric',
+            'category' => 'required|numeric',
+        ]);
+
+        People::create([
+            'name' => $validated['name'],
+            'phone' => $validated['phone'],
+            'email' => $validated['email'],
+            'city_id' => $validated['city'],
+            'category_id' => $validated['category'],
+        ]);
+
+        return redirect()->route('people.index')->with('message', 'People added succefully.');
     }
 
     /**
