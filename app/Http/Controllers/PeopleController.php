@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\City;
 use App\Models\People;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +18,6 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        // $people = People::latest()->get();
         $people = DB::select('
                     SELECT
                         people.name, people.phone, people.email, cities.name as city, cities.country as country, categories.name as category
@@ -53,7 +54,10 @@ class PeopleController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('People/Form', [
+            "cities" => City::all(),
+            "categories" => Category::all()
+        ]);
     }
 
     /**
@@ -64,7 +68,7 @@ class PeopleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

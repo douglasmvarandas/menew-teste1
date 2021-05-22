@@ -4,6 +4,9 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 People
             </h2>
+            <inertia-link as="button" :href="route('people.create')">
+                ADD
+            </inertia-link>
         </template>
 
         <div class="py-12">
