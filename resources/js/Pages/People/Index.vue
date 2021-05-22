@@ -13,6 +13,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
+                        <input type="text" v-model="search">
                         <table>
                             <tr>
                                 <th>Name</th>
@@ -23,7 +24,7 @@
                                 <th>Category</th>
                                 <th>Actions</th>
                             </tr>
-                            <tr v-for="person in people" :key="person.id">
+                            <tr v-for="person in filteredPeople" :key="person.id">
                                 <td>{{ person.name }}</td>
                                 <td>{{ person.phone }}</td>
                                 <td>{{ person.email }}</td>
@@ -61,9 +62,27 @@
             people: Object,
         },
 
+        data () {
+            return {
+                search: null,
+            }
+        },
+
         methods: {
             confirm () {
                 return confirm("Are you sure about that?");
+            },
+        },
+
+        computed: {
+            filteredPeople () {
+                if (this.search) {
+                    return this.people.filter((person) => {
+                        return person.name.toLowerCase().includes(this.search.toLowerCase());
+                    })
+                } else {
+                    return this.people;
+                }
             }
         }
     }
