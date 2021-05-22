@@ -131,12 +131,12 @@ class PeopleController extends Controller
         if ($request->city != $people->city_id)
         {
             $validated = $request->validate(['city' => 'required|numeric']);
-            $people->city_id = $validated['city_id'];
+            $people->city_id = $validated['city'];
         }
         if ($request->category != $people->category_id)
         {
             $validated = $request->validate(['category' => 'required|numeric']);
-            $people->category_id = $validated['category_id'];
+            $people->category_id = $validated['category'];
         }
 
         $people->save();
