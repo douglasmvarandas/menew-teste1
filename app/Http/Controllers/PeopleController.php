@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\People;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class PeopleController extends Controller
@@ -15,7 +16,34 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        return Inertia::render('People/Index');
+        // $people = People::latest()->get();
+        $people = DB::select('
+                    SELECT
+                        people.name, people.phone, people.email, cities.name as city, cities.country as country, categories.name as category
+                    FROM
+                        people
+                    JOIN
+                        (
+                            SELECT
+                                cities.id as id, cities.name as name, countries.name as country
+                            FROM
+                                cities
+                            JOIN
+                                countries
+                            ON
+                                cities.country_id = countries.id
+                        ) as cities
+                    ON
+                        people.city_id = cities.id
+                    JOIN
+                        categories
+                    ON
+                        people.category_id = categories.id;
+                ');
+
+        return Inertia::render('People/Index', [
+            "people" => $people
+        ]);
     }
 
     /**
