@@ -1,0 +1,11 @@
+.container{
+    margin-top: 10px;
+    width: 300px;
+    background-color: rgb(127, 127, 218);
+    border-radius: 5px;
+}
+
+.mb-3{
+    height: 60px;
+}
+
