@@ -60,5 +60,11 @@
             errors: Object,
             people: Object,
         },
+
+        methods: {
+            confirm () {
+                return confirm("Are you sure about that?");
+            }
+        }
     }
 </script>

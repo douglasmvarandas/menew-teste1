@@ -161,8 +161,12 @@ class PeopleController extends Controller
      * @param  \App\Models\People  $people
      * @return \Illuminate\Http\Response
      */
-    public function destroy(People $people)
+    public function destroy($id)
     {
-        //
+        $people = People::find($id);
+
+        $people->delete();
+
+        return redirect()->route('people.index')->with('message', 'People deleted succefully.');
     }
 }
