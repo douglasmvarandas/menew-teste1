@@ -120,9 +120,39 @@ class PeopleController extends Controller
      * @param  \App\Models\People  $people
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, People $people)
+    public function update(Request $request, $id)
     {
-        dd($request);
+        $people = People::find($id);
+
+        if ($request->name != $people->name)
+        {
+            $validated = $request->validate(['name' => 'required|string|min:5']);
+            $people->name = $validated['name'];
+        }
+        if ($request->phone != $people->phone)
+        {
+            $validated = $request->validate(['phone' => 'required|numeric|unique:people']);
+            $people->phone = $validated['phone'];
+        }
+        if ($request->email != $people->email)
+        {
+            $validated = $request->validate(['email' => 'required|email|unique:people']);
+            $people->email = $validated['email'];
+        }
+        if ($request->city != $people->city_id)
+        {
+            $validated = $request->validate(['city' => 'required|numeric']);
+            $people->city_id = $validated['city_id'];
+        }
+        if ($request->category != $people->category_id)
+        {
+            $validated = $request->validate(['category' => 'required|numeric']);
+            $people->category_id = $validated['category_id'];
+        }
+
+        $people->save();
+
+        return redirect()->route('people.index')->with('message', 'People updated succefully.');
     }
 
     /**
