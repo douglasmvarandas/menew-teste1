@@ -88,20 +88,9 @@ class PeopleController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\People  $people
-     * @return \Illuminate\Http\Response
-     */
-    public function show(People $people)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\People  $people
+     * @param  \App\Models\$id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -117,7 +106,7 @@ class PeopleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\People  $people
+     * @param  \App\Models\$id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -158,7 +147,7 @@ class PeopleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\People  $people
+     * @param  \App\Models\$id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
