@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/cadastro.css">
 </head>
-<body>
+<body class="corpo">
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
@@ -33,34 +33,33 @@
             </div>
         </nav>
     </div>
-
-    <div class="container" style="margin-bottom: 100px;">
+    <div class="container-fluid container" style="margin-bottom: 100px;">
         <h4>
             <p style="padding-top: 10px;">Cadastro</p>
         </h4>
-        <form class="form-group">
+        <form action="index.php">
             <!--nome-->
-            <div class="mb-3">
+            <div class="from-group">
                 <label for="exampleInputEmail1" class="form-label">Nome</label>
                 <input type="text" class="form-control">
             </div>
             <!--telefone-->
-            <div class="mb-3">
+            <div class="form-group">
                 <label for="exampleInputPassword1" class="form-label">Telefone</label>
                 <input type="text" class="form-control" id="exampleInputPassword1">
             </div>
             <!--email-->
-            <div class="mb-3">
+            <div class="form-group">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <!--cidade-->
-            <div class="mb-3">
+            <div class="form-group">
                 <label for="exampleInputEmail1" class="form-label">Cidade</label>
                 <input type="text" class="form-control">
             </div>
             <!--estado-->
-            <div class="mb-3">
+            <div class="form-group">
                 <label for="exampleInputEmail1" class="form-label">Estado</label>
                 <select class="form-control" name="estadoC" style="width: 100%;" required>
 						<option></option>
@@ -72,7 +71,7 @@
 				</select>
             </div>
             <!--categoria-->
-            <div class="mb-3">
+            <div class="form-group">
                 <label for="exampleInputEmail1" class="form-label">Categoria</label>
                 <select class="form-control" name="categoriaC" required>
 						<option></option>
@@ -86,7 +85,7 @@
     </div>
 
     
-    
+  
     <script type="text/javascript" src="js/bootstrap.js"></script>
 
 </body>

@@ -1,11 +1,12 @@
 body{
-    background-color: rgb(47, 48, 90);
+    background-color: black;
+    color: white;
 }
 
-.container{
+.container-fluid{
     margin-top: 10px;
     width: 300px;
-    background-color: rgb(90, 115, 230);
+    background-color: rgb(128, 143, 211);
     border-radius: 5px;
     color: white;
     margin-left: 50px;
