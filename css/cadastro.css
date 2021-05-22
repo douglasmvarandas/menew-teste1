@@ -1,16 +1,17 @@
-body{
-    background-color: black;
+.display{
+    display: flex;
+}
+
+.container{
+    max-width: 300px;
+    background-color: rgb(252, 39, 39);
+    margin-top: 10px;
+    border-radius: 5px;
     color: white;
 }
 
-.container-fluid{
-    margin-top: 10px;
-    width: 300px;
-    background-color: rgb(128, 143, 211);
-    border-radius: 5px;
-    color: white;
-    margin-left: 50px;
-    
+.image{
+    margin-left: 10px;
 }
 
 .mb-3{
@@ -22,4 +23,6 @@ body{
     font-weight: bold;
     margin-bottom: 20px;
     margin-top: 10px;
+    background-color: rgb(20, 197, 20);
+    color: white;
 }

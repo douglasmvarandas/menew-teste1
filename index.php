@@ -34,7 +34,6 @@
             </div>
         </nav>
     </div>
-    <img class="img" src="img/wp_01.jpg" width="100%" alt="Image Fail">
     <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>

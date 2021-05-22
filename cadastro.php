@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/cadastro.css">
 </head>
-<body class="corpo">
+<bod>
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
@@ -33,33 +33,34 @@
             </div>
         </nav>
     </div>
+    <div class="display">
     <div class="container-fluid container" style="margin-bottom: 100px;">
         <h4>
             <p style="padding-top: 10px;">Cadastro</p>
         </h4>
         <form action="index.php">
             <!--nome-->
-            <div class="from-group">
+            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nome</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" autocomplete="off" required>
             </div>
             <!--telefone-->
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Telefone</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <input type="text" class="form-control" id="exampleInputPassword1" autocomplete="off" required>
             </div>
             <!--email-->
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="exampleInputEmail1" autocomplete="off" aria-describedby="emailHelp">
             </div>
             <!--cidade-->
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Cidade</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" autocomplete="off" required>
             </div>
             <!--estado-->
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Estado</label>
                 <select class="form-control" name="estadoC" style="width: 100%;" required>
 						<option></option>
@@ -71,7 +72,7 @@
 				</select>
             </div>
             <!--categoria-->
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Categoria</label>
                 <select class="form-control" name="categoriaC" required>
 						<option></option>
@@ -80,9 +81,12 @@
 						<option>Funcionário</option>
 			    </select>
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn">Cadastrar</button>
         </form>
     </div>
+    </div>
+    
+
 
     
   
