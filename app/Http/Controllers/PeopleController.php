@@ -20,7 +20,7 @@ class PeopleController extends Controller
     {
         $people = DB::select('
                     SELECT
-                        people.name, people.phone, people.email, cities.name as city, cities.country as country, categories.name as category
+                        people.id, people.name, people.phone, people.email, cities.name as city, cities.country as country, categories.name as category
                     FROM
                         people
                     JOIN
@@ -104,9 +104,13 @@ class PeopleController extends Controller
      * @param  \App\Models\People  $people
      * @return \Illuminate\Http\Response
      */
-    public function edit(People $people)
+    public function edit($id)
     {
-        //
+        return Inertia::render('People/Form', [
+            "person" => People::find($id),
+            "cities" => City::all(),
+            "categories" => Category::all()
+        ]);
     }
 
     /**
@@ -118,7 +122,7 @@ class PeopleController extends Controller
      */
     public function update(Request $request, People $people)
     {
-        //
+        dd($request);
     }
 
     /**

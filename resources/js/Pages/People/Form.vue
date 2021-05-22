@@ -63,6 +63,7 @@
             errors: Object,
             cities: Object,
             categories: Object,
+            person: Object,
         },
         data() {
             return {
@@ -75,9 +76,22 @@
                 },
             }
         },
+        mounted () {
+            if (this.person) {
+                this.form.name = this.person.name
+                this.form.phone = this.person.phone
+                this.form.email = this.person.email
+                this.form.city = this.person.city_id
+                this.form.category = this.person.category_id
+            }
+        },
         methods: {
             submit() {
-            this.$inertia.post('/people', this.form)
+                if (this.person) {
+                    this.$inertia.put(this.route('people.update', this.person.id), this.form);
+                } else {
+                    this.$inertia.post('/people', this.form)
+                }
             },
         },
     }

@@ -31,8 +31,12 @@
                                 <td>{{ person.country }}</td>
                                 <td>{{ person.category }}</td>
                                 <td>
-                                    Edit
-                                    Delete
+                                    <inertia-link :href="route('people.edit', person.id)">
+                                        Edit
+                                    </inertia-link>
+                                    <inertia-link as="button" method="delete" :href="route('people.destroy', parseInt(person.id))">
+                                        Delete
+                                    </inertia-link>
                                 </td>
                             </tr>
                         </table>
