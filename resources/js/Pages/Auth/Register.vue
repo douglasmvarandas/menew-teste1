@@ -1,7 +1,7 @@
 <template>
     <breeze-validation-errors class="mb-4" />
 
-    <form @submit.prevent="submit">
+    <form @submit.prevent="submit" class="py-2">
         <div>
             <breeze-label for="name" value="Name" />
             <breeze-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
@@ -24,7 +24,7 @@
 
         <div class="flex items-center justify-end mt-4">
             <inertia-link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                Already registered?
+                Back
             </inertia-link>
 
             <breeze-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
