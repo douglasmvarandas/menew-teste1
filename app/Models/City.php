@@ -20,4 +20,14 @@ class City extends Model
         'name',
         'country_id',
     ];
+
+    /**
+     * Establish relationship.
+     *
+     * @return void
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }

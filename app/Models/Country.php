@@ -19,4 +19,14 @@ class Country extends Model
     protected $fillable = [
         'name',
     ];
+
+    /**
+     * Establish relationship.
+     *
+     * @return void
+     */
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+    }
 }
