@@ -11,6 +11,11 @@
             </div>
         </template>
 
+        <div id="flashMessage" v-if="$page.props.flash.message" class="fixed bottom-4 left-6 bg-green-500 text-white py-4 px-6 rounded-md flex items-center justify-center transform transition-all duration-500">
+            <p @click="closeFlashMessage" class="mr-4 text-xl cursor-pointer">X</p>
+            <p>{{ $page.props.flash.message }}</p>
+        </div>
+
         <div class="py-12">
             <div class="w-full mx-auto sm:px-6 lg:px-20">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -83,6 +88,11 @@
             confirm () {
                 return confirm("Are you sure about that?");
             },
+            closeFlashMessage () {
+                if (document.getElementById('flashMessage')) {
+                    document.getElementById('flashMessage').classList.add('opacity-0')
+                }
+            }
         },
 
         computed: {
