@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Agenda | Listar</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/cadastro.css">
 </head>
@@ -43,6 +43,7 @@
                 <th scope="col">Cidade</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Categoria</th>
+                <th scope="col">Ação</th>
             </tr>
         </thead>
             
@@ -68,6 +69,7 @@
                 <td><?php echo $cidade ?></td>
                 <td><?php echo $estado ?></td>
                 <td><?php echo $categoria ?></td>
+                <td><a class="btn btn-warning btn-sm" href="editar.php?id=<?php echo $id_agenda ?>" role="button">Editar</a></td>
 
                 <?php   
                     }

@@ -35,7 +35,7 @@
         <h4>
             <p style="padding-top: 10px;">Cadastro</p>
         </h4>
-        <form action="connect/_inserir_cadastro.php" method="post">
+        <form action="_inserir_cadastro.php" method="post">
             <!--nome-->
             <div class="mb-3">
                 <label class="form-label">Nome</label>
@@ -78,7 +78,7 @@
 						<option>Funcionário</option>
 			    </select>
             </div>
-            <button type="submit" class="btn">Cadastrar</button>
+            <button type="submit" class="but">Cadastrar</button>
         </form>
     </div>
 
