@@ -82,8 +82,8 @@
                 <select class="form-control" name="categoriaE" required>
 						<option></option>
 						<option>Cliente</option>
-						<option>Fornecedor</option>
-						<option>Funcionário</option>
+						<option>Fornecedor(a)</option>
+						<option>Funcionário(a)</option>
 			    </select>
             </div>
             <button type="submit" class="but">Cadastrar</button>

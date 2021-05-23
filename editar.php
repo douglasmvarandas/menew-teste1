@@ -95,8 +95,8 @@
                 <select class="form-control" name="categoria" value="<?php echo $categoria ?>" required>
 						<option></option>
 						<option>Cliente</option>
-						<option>Fornecedor</option>
-						<option>Funcionário</option>
+						<option>Fornecedor(a)</option>
+						<option>Funcionário(a)</option>
 			    </select>
             </div>
             <button type="submit" class="but">Atualizar</button>
