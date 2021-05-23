@@ -30,6 +30,14 @@
                 </ul>
                 </div>
             </div>
+            <!--pesquisa-->
+            <form action="pesquisa.php" method="POST">
+            <div class="input-group">
+                <input type="search" class="form-control rounded" name="nome" placeholder="Pesquisar" aria-label="Search"
+                    aria-describedby="search-addon" />
+                <button type="submit" class="btn" style="color: white; font-weight: bold; border-color: white;">Pesquisar</button>
+            </div>
+            </form>
         </nav>
     </div>
     <script type="text/javascript" src="js/bootstrap.js"></script>

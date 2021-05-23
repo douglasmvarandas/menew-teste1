@@ -7,6 +7,10 @@
     <link rel="stylesheet" type="text/css" href="css/cadastro.css">
 </head>
 <body>
+    <?php
+        include 'connect/connect.php';
+        $nome = $_POST['nome'];
+    ?>
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
@@ -23,7 +27,7 @@
                         <a class="nav-link" href="cadastro.php">Cadastrar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="listar.php">Listar</a>
+                        <a class="nav-link" href="listar.php">Listar</a>
                     </li>
                     
                 </ul>
@@ -41,7 +45,7 @@
     </div>
 
     <div class="container-fluid">
-        <h4 style="margin-top: 20px;">Lista</h4>
+        <h4 style="margin-top: 20px;">Pesquisa</h4>
         <table class="table">
             <thead class="thead-dark">
             <tr class="tr">
@@ -57,8 +61,8 @@
             
                 <?php
                     include 'connect/connect.php';
-                    $sql = "SELECT * FROM `agenda`";
-                    $lista = mysqli_query($connect, $sql);
+                    $sql = "SELECT * FROM `agenda` WHERE nome = '$nome'";
+                    $lista = mysqli_query($connect, $sql) or die("Não nome encontrado!");
 
                     while($array = mysqli_fetch_array($lista)){
                         $id_agenda = $array['id_agenda'];
