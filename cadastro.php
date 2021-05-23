@@ -49,7 +49,7 @@
             <!--email-->
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" name="emailE" id="exampleInputEmail1" autocomplete="off" aria-describedby="emailHelp">
+                <input type="email" class="form-control" name="emailE" id="exampleInputEmail1" autocomplete="off" aria-describedby="emailHelp" required>
             </div>
             <!--cidade-->
             <div class="mb-3">
