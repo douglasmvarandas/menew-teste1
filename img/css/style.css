@@ -1,0 +1,48 @@
+body{
+    background-color: #f7fafc;
+    font-family: 'Nunito';
+}
+.campoAgendamentos{
+    position: relative;
+    background-color: white;
+    width: 50%;
+    height: 50%;
+    padding: 2%;
+    margin: 2% auto;
+    max-width: 800px;
+    border-radius: 10px;
+    border-left-width: 1px;
+    box-shadow: 0 0 10px 0 rgba(120,135,182,.2);
+}
+.campoListagem{
+    position: relative;
+    background-color: white;
+    padding: 2%;
+    margin: 2% 20% 2% 20%;
+    border-radius: 10px;
+    border-left-width: 1px;
+    box-shadow: 0 0 10px 0 rgba(120,135,182,.2);
+}
+.campoVisualizar{
+    position: relative;
+    background-color: white;
+    padding: 2%;
+    margin: 2% 30% 2% 30%;
+    border-radius: 10px;
+    border-left-width: 1px;
+    box-shadow: 0 0 10px 0 rgba(120,135,182,.2);
+}
+.acoes{
+    text-align: center;
+}
+.centralizarItem{
+    text-align: center;
+}
+.voltarList{
+    text-align: center;
+    margin-top: 2%;
+}
+
+.campoPesquisa{
+    margin: 10px 19% 0px 20%;
+}
