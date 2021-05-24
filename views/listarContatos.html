@@ -1,0 +1,144 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $filtroBusca = $_POST['filtroBusca'];
+    if (empty($filtroBusca)) {
+
+    } else {
+        $_SESSION['filtro'] = $filtroBusca;
+        header("Refresh: 0");
+    }
+}
+?>
+    <?php
+$v_params = $this->getParams();
+$v_contatos = $v_params['v_contatos'];
+$v_contagem = 0;
+?>
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0">
+            <link rel="shortcut icon" type="image/png" href="resources/img/photo.png" />
+            <title>
+                Agenda Menew - Contatos
+            </title>
+            <link rel="stylesheet" type="text/css" href="resources/css/default.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        </head>
+
+        <body>
+            <div class="container">
+                <?php if ( isset( $_SESSION['type'] )): if ($_SESSION['type'] == 'success') ?>
+                <div class="alert <?php echo $_SESSION['css'] ?>" role="alert">
+                    <?php echo $_SESSION['message'] ?>
+                </div>
+                <?php session_unset(); session_destroy(); endif; ?>
+                <div class="col-12">
+                    <i class="bi-github" role="img" aria-label="GitHub" style="font-size: 2rem;"></i>
+                    <a href='https://github.com/Jonnahs'>https://github.com/Jonnahs</a>
+                </div>
+                <div class="col-12">
+                    <i class="bi bi-linkedin" role="img" aria-label="LinKedin" style="font-size: 2rem;"></i>
+                    <a href='https://www.linkedin.com/in/jonas-alves-697098179/'>linkedin - jonas-alves</a>
+                </div>
+                <div class="container ajusteBusca">
+                    <form method="post" action="">
+                        <div class="row">
+                            <div class="col-8 col-sm-8 col-md-8" input-group>
+                                <input class="form-control" placeholder="Pesquisa por nome" type='text' id='filtroBusca' name='filtroBusca' maxlength="25">
+                            </div>
+                            <div class="col-4 col-sm-4 col-md-4">
+                                <button class="btn btn-outline-dark" type="submit">Buscar</button>
+
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+                <br>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">
+                                    Ordem
+                                </th>
+                                <th scope="col">
+                                    Nome
+                                </th>
+                                <th scope="col">
+                                    Telefone
+                                </th>
+                                <th scope="col">
+                                    E-mail
+                                </th>
+                                <th scope="col">
+                                    Cidade
+                                </th>
+                                <th scope="col">
+                                    Estado
+                                </th>
+                                <th scope="col">
+                                    Categoria
+                                </th>
+                                <th scope="col" colspan="3" align="center">
+                                    Ações
+                                </th>
+                            </tr>
+                        </thead>
+                        <?php
+            foreach($v_contatos AS $o_contato)
+            {
+                $v_contagem = $v_contagem + 1
+                ?>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <?php echo $v_contagem ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $o_contato->getNome() ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $o_contato->getDDD()." ".$o_contato->getTelefone()?>
+                                    </td>
+                                    <td>
+                                        <?php echo $o_contato->getEmail()?>
+                                    </td>
+                                    <td>
+                                        <?php echo $o_contato->getCidade()?>
+                                    </td>
+                                    <td>
+                                        <?php echo $o_contato->getEstado()?>
+                                    </td>
+                                    <td>
+                                        <?php echo $o_contato->getCategoria()?>
+                                    </td>
+                                    <td align="center">
+                                        <a class="btn btn-outline-secondary" href='?controle=Telefone&acao=listarTelefones&in_con=<?php echo $o_contato->getId()?>'><abbr title="Cadastrar novo Telefone"><i class="bi bi-journals"></i></abbr></a>
+                                    </td>
+                                    <td align="center">
+                                        <a class="btn btn-outline-primary" href='?controle=Contato&acao=manterContato&in_con=<?php echo $o_contato->getId()?>'><abbr title="Editar"><i class="bi bi-pencil-square"></i></abbr></a>
+                                    </td>
+                                    <td align="center">
+                                        <a class="btn btn-outline-danger" href='?controle=Contato&acao=apagarContato&in_con=<?php echo $o_contato->getId()?>' onclick="return confirm('Tem certeza que deseja deletar este registro?')"><abbr title="Excluir"><i class="bi bi-trash"></i></abbr></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <?php
+            }
+            ?>
+                    </table>
+                </div>
+                <br />
+                <a class="btn btn-success" href='?controle=Contato&acao=manterContato'><i class="bi bi-person-plus" style="font-size: 1.2rem;"></i> Novo Contato</a>
+                <br>
+                <br>
+            </div>
+        </body>
+
+        </html>

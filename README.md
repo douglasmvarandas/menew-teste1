@@ -1,33 +1,33 @@
-<img src="https://mvarandas.com.br/static/default/images/menew-bymv.png" width="200">
+# Projeto referente ao teste Dev Menew
+<p align="justify"> Projeto desenvolvido com PHP puro utilizando padrão MVC. </p>
 
-## **TESTE PARA DESENVOLVEDOR (1)**
+
+## Atingindo o CRUD e indo além :checkered_flag:
+
+:trophy: O sistema é capaz de registrar um contato, edita-lo e excluí-lo.
+
+:trophy: E um mesmo contato poderá ter varios números telefônicos atrelados.
+
+:trophy: Mensagens de sucesso na inclusão do registro e na exclusão do mesmo.
+
+:trophy: Pesquisa por nome, sendo parte ou completo.
 
 
-**Informações Iniciais:**
+> Telefone exibido: Na home será visível o primeiro número cadastrado (Ou seja, tornasse o contato prioritário) :warning:
 
-1. Para submeter o seu projeto, **faça um fork** deste repositório e realize um **pull request** para enviar o seu código;
+> Validação: alguns campos possuem validação :warning:
 
-2. O backend deve ser desenvolvido com PHP e o Banco de Dados preferencialmente MySQL;
+## Instalação
 
-3. O dump do Banco de Dados deve fazer parte dos arquivos versionados.
+Com os arquivos devidamento instalado na pasta htdocs por exemplo como instalação no xampp.
 
-**Questão:**
+### 1. Ajuste no banco de dados
+Ajuste o arquivo: lib/PersistModelAbstract.php
+conforme banco de dados utilizando.
 
-Elaborar uma aplicação de agenda para listar, cadastrar e editar informações.
+> Ao abrir o projeto o mesmo se incarrega de criar o banco de dados :heavy_check_mark:
 
-a) Os campos do formulário são os seguintes:
+> Disponível Scripts para popular as tabelas com dados de teste :heavy_check_mark:
 
- - nome (input text)
- - telefone (input text)
- - email (input text)
- - cidade (input text)
- - estado (select box com os 5 Estados de sua preferência)
- - categoria (select box com os itens Cliente, Fornecedor e Funcionário)
+> Disponível Scripts para criar as tabelas caso o projeto não crie :warning:
 
-b) A interface deve ter uma busca de registros e respeitar os seguintes requisitos:
-
- - o código precisa ser bem formatado;
- - precisa respeitar padrões de responsividade;
- - deve ser desenvolvida com o uso de Bootstrap 4;
-
-...Boa Sorte!

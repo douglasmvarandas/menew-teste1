@@ -1,0 +1,121 @@
+<?php
+session_start();
+$v_params = $this->getParams();
+$o_contato = $v_params['o_contato'];
+$v_telefones = $v_params['v_telefones'];
+$v_contagem = 0;
+?>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="resources/img/photo.png" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>
+            Agenda Menew - Contatos
+        </title>
+        <link rel="stylesheet" type="text/css" href="resources/css/default.css" />
+    </head>
+
+    <body>
+        <section>
+            <div class="container">
+                <?php if ( isset( $_SESSION['type'] )): if ($_SESSION['type'] == 'success') ?>
+                <div class="alert <?php echo $_SESSION['css'] ?>" role="alert">
+                    <?php echo $_SESSION['message'] ?>
+                </div>
+                <?php session_unset(); session_destroy(); endif; ?>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan='2' scope="col">
+                                    Contato
+                                </th>
+                            </tr>
+                            <tr>
+                                <th scope="col">
+                                    Nome
+                                </th>
+                                <th scope="col">
+                                    E-mail
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <?php echo $o_contato->getNome()?>
+                                </td>
+                                <td>
+                                    <?php echo $o_contato->getEmail()?>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <br />
+        <section>
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" scope="col">
+                                    Telefones
+                                </th>
+                            </tr>
+                            <tr>
+                                <th scope="col">
+                                    Ordem
+                                </th>
+                                <th scope="col">
+                                    DDD
+                                </th>
+                                <th scope="col">
+                                    Telefone
+                                </th>
+                                <th colspan="2" scope="col">
+                                    Ações
+                                </th>
+                            </tr>
+                            <?php
+        foreach($v_telefones AS $o_telefone)
+        { 
+            $v_contagem = $v_contagem + 1
+            ?>
+                                <tr>
+                                    <td align="center">
+                                        <?php echo $v_contagem?>
+                                    </td>
+                                    <td align="center">
+                                        <?php echo $o_telefone->getDDD()?>
+                                    </td>
+                                    <td align="center">
+                                        <?php echo $o_telefone->getTelefone()?>
+                                    </td>
+                                    <td align="center">
+                                        <a class="btn btn-outline-danger" href='?controle=Telefone&acao=apagarTelefone&in_con=<?php echo $o_contato->getId()?>&in_tel=<?php echo $o_telefone->getId()?>' onclick="return confirm('Tem certeza que deseja deletar este número de telefone?')"><abbr title="Excluir"><i class="bi bi-trash"></i></abbr></a>
+                                    </td>
+                                    <td align="center">
+                                        <a class="btn btn-outline-primary" href='?controle=Telefone&acao=manterTelefone&in_con=<?php echo $o_contato->getId()?>&in_tel=<?php echo $o_telefone->getId()?>'><abbr title="Editar"><i class="bi bi-pencil-square"></i></abbr></a>
+                                    </td>
+                                </tr>
+                                <?php
+        } 
+        ?>
+                        </thead>
+                    </table>
+                    <br />
+                    <a class="btn btn-outline-info" href='?controle=Index'>Voltar</a>
+                    <a class="btn btn-success" href='?controle=Telefone&acao=manterTelefone&in_con=<?php echo $o_contato->getId()?>'>Novo Telefone</a>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    </html>

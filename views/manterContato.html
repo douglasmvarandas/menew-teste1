@@ -1,0 +1,87 @@
+<?php
+$v_params = $this->getParams();
+$o_contato = $v_params['o_contato'];
+?>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="resources/img/photo.png" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>
+            Agenda Menew - Contatos
+        </title>
+        <script type="text/javascript" src="resources/js/validaCadastro.js"></script>
+        <link rel="stylesheet" type="text/css" href="resources/css/default.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4>Cadastro de agenda</h4>
+                </div>
+            </div>
+            <form class="needs-validation" method='post'>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6" input-group>
+                        <Span>Nome:</Span>
+                        <input class="form-control" placeholder="Nome Completo" type='text' id='st_nome' name='st_nome' value='<?php echo $o_contato->getNome()?>' maxlength="200" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6" input-group>
+                        <Span>E-mail:</Span>
+                        <input class="form-control" type='email' id='st_email' name='st_email' maxlength="255" value='<?php echo $o_contato->getEmail()?>'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8 col-sm-8 col-md-4" input-group>
+                        <Span>Cidade:</Span>
+                        <input class="form-control" type='text' id='st_cidade' name='st_cidade' maxlength="100" value='<?php echo $o_contato->getCidade()?>'>
+                    </div>
+                    <div class="col-4 col-sm-4 col-md-2" input-group>
+                        <Span>Estado:</Span>
+                        <select class="form-control" id='st_estado' name='st_estado'>
+                                <option selected ><?php echo $o_contato->getEstado()?></option>
+                                <?php if ($o_contato->getEstado() !== 'Alagoas'): ?><option>Alagoas</option> <?php endif; ?>
+                                <?php if ($o_contato->getEstado() !== 'Bahia'): ?><option>Bahia</option> <?php endif; ?>
+                                <?php if ($o_contato->getEstado() !== 'Ceará'): ?><option>Ceará</option> <?php endif; ?>
+                                <?php if ($o_contato->getEstado() !== 'Paraíba'): ?><option>Paraíba</option> <?php endif; ?>
+                                <?php if ($o_contato->getEstado() !== 'Pernambuco'): ?><option>Pernambuco</option> <?php endif; ?>
+                            </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8 col-sm-8 col-md-4" input-group>
+                        <Span>Categoria:</Span>
+                        <select class="form-control" id='st_categoria' name='st_categoria'>
+                                <option selected ><?php echo $o_contato->getCategoria()?></option>
+                                <?php if ($o_contato->getCategoria() !== 'Cliente'): ?><option>Cliente</option> <?php endif; ?>
+                                <?php if ($o_contato->getCategoria() !== 'Fornecedor'): ?><option>Fornecedor</option> <?php endif; ?>
+                                <?php if ($o_contato->getCategoria() !== 'Funcionário'): ?><option>Funcionário</option> <?php endif; ?>
+                              </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+
+                    <div class="col-12">
+                        <a class="btn btn-outline-primary" href='?controle=Contato&acao=listarContato'><i class="bi bi-x-square"></i> Voltar</a>
+
+
+                        <input type='hidden' name='controle' value='Contato'>
+                        <input type='hidden' name='acao' value='manterContato'>
+                        <input type='hidden' name='in_con' value='<?php echo $o_contato->getId()?>'>
+                        <button class="btn btn-success" id="avancar" type='submit'><i class="bi bi-person-lines-fill"></i> Salvar</button>
+                    </div>
+            </form>
+            </div>
+        </div>
+
+    </body>
+
+    </html>
