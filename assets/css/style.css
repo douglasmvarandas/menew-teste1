@@ -1,0 +1,18 @@
+body {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+nav {
+    padding-left:2%;
+}
+
+footer {
+    background-color: #eb3d3d; 
+    position:relative; 
+    bottom: 0; 
+    width:100%;
+}
+
+#page-content {
+    min-height: calc(100vh - 100px);
+}
