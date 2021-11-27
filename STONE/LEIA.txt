@@ -1,0 +1,27 @@
+OLA TUDO BOM BREVE EXPLICAÇÃO SOBRE OS PASSOS.
+
+1. começei realizando a conexão com o bd 
+     servidor localhost
+     usuario root 
+     senha 
+     nome do bd STONE 
+
+2. depois da conexão fiz o arquivo php com formatação bootstrap 
+   existia varias opções de se fazer como o uso de cards, forms e outros optei por divs
+   e linkei um arquivo css e bootstrap externo para pagina não perder formatação se 
+   ficar sem conexão.
+
+3. depois de fazer o form e tables extrai as variaveis em php que usei para carregar o banco de dados
+   uma vez o banco recebendo esse dados voltei ao php e no arquivo de conexão realizei o crud retornando 
+   para a propria pagina os dados.não usei json nem xml pois não estava na especificação.
+
+4. fiz testes e ajustei a pagina 
+   os dados podem ser editados , deletados e inseridos como pode se observar no arquivo conexao.php 
+
+5. por fim a estrutura de arquivos e o dump do bd
+   diretorio principal [ STONE ]
+   dentro desse diretorio tem [ BD, bootstrap, css, img, conexao.php, index.php e leia.txt]
+   e dentro de cada pasta dessa tem alguns arquivos usados no projeto como imagens e o dump do bd.
+
+6. agraeço muito pela oportunidade, estou aberto a criticas e comentarios para cresimento pessoal e profissional.
+   desejo a todos do team stone saude paz e alegria abraços.
